@@ -1,9 +1,11 @@
 import './index.less'
 
-import Button from './button'
+import button from './button'
+import input from './input'
 
 const components = {
-  Button
+  button,
+  input
 }
 
 const install = function(Vue) {

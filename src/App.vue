@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <btn v-bind="options1">按钮测试</btn>
-    <btn v-bind="options2">按钮测试</btn>
-    <btn v-bind="options3">按钮测试</btn>
-    <btn @click="click">按钮测试</btn>
+    <sim-input v-model="value"
+               placeholder="forbid"
+               disabled>
+      <sim-btn slot="before"></sim-btn>
+      <sim-btn slot="after"></sim-btn>
+    </sim-input>
   </div>
 </template>
 
@@ -12,19 +14,14 @@ export default {
   name: "App",
   data() {
     return {
-      options1: {
-        size: "small"
-      },
-      options2: {
-        size: "middle",
-        type: "success"
-      },
-      options3: {
-        size: "large",
-        type: "warn",
-        disabled: true
-      }
+      value: "",
+      sloted: "before"
     };
+  },
+  watch: {
+    value(val) {
+      console.log(val);
+    }
   },
   methods: {
     click() {

@@ -12,7 +12,7 @@
 <script>
 import "./button.less";
 export default {
-  name: "btn",
+  name: "sim-btn",
   props: {
     size: {
       type: String,
