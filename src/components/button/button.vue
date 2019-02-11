@@ -1,6 +1,10 @@
 <template>
-  <button class="btn">
-    <span>less test</span>
+  <button class="btn"
+          :class="[
+                    size=='middle'?'middle-btn':size=='small'?'small-btn':'large-btn',
+                    type=='default'?'default-btn':type=='success'?'success-btn':'warn-btn',
+                    disabled?'disabled':'']"
+          @click="click">
     <slot></slot>
   </button>
 </template>
@@ -9,22 +13,38 @@
 import "./button.less";
 export default {
   name: "btn",
+  props: {
+    size: {
+      type: String,
+      default: "middle"
+    },
+    type: {
+      type: String,
+      default: "default"
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {};
   },
-  components: {}
+  components: {},
+  methods: {
+    click() {
+      if (this.disabled) {
+        let event = window.event;
+        event.stopPropagation();
+        event.returnValue = false;
+        event.preventDefault();
+      } else {
+        this.$emit("click");
+      }
+    }
+  }
 };
 </script>
 
 <style lang='less' scoped>
-// .btn {
-//   width: 100px;
-//   height: 30px;
-//   background: lightblue;
-//   color: #ffffff;
-//   span {
-//     color: green;
-//     background: yellow;
-//   }
-// }
 </style>

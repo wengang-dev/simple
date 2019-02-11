@@ -1,12 +1,36 @@
 <template>
   <div id="app">
-    <btn>按钮测试</btn>
+    <btn v-bind="options1">按钮测试</btn>
+    <btn v-bind="options2">按钮测试</btn>
+    <btn v-bind="options3">按钮测试</btn>
+    <btn @click="click">按钮测试</btn>
   </div>
 </template>
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  data() {
+    return {
+      options1: {
+        size: "small"
+      },
+      options2: {
+        size: "middle",
+        type: "success"
+      },
+      options3: {
+        size: "large",
+        type: "warn",
+        disabled: true
+      }
+    };
+  },
+  methods: {
+    click() {
+      alert("click");
+    }
+  }
 };
 </script>
 

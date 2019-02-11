@@ -1,4 +1,7 @@
+import './index.less'
+
 import Button from './button'
+
 const components = {
   Button
 }

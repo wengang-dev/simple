@@ -1,10 +1,57 @@
 .btn {
-  width: 100px;
-  display: block;
-  border: 1px solid red;
-  border-radius: 5px;
-  height: 30px;
-  line-height: 30px;
+  border: 1px solid transparent;
   text-align: center;
+  cursor: pointer;
+  transition: ease-in-out 0.1s;
+  outline: none;
+  &:hover {
+    opacity: 0.6;
+  }
+  &:active {
+    opacity: 1;
+  }
+}
+// size
+.small-btn {
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+.middle-btn {
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+.large-btn {
   font-size: 20px;
+  padding: 12px 18px;
+  border-radius: 6px;
+}
+
+// type
+.success-btn {
+  background: #67c23a;
+  color: #ffffff;
+}
+.warn-btn {
+  background: #f56c6c;
+  color: #ffffff;
+}
+.default-btn {
+  background: #409eff;
+  color: #ffffff;
+}
+
+// disabled
+.disabled {
+  opacity: 0.5;
+  cursor: no-drop;
+  user-select: none;
+  transition: none;
+  &:hover {
+    opacity: 0.5 !important;
+  }
+  &:active {
+    opacity: 0.5 !important;
+  }
 }
