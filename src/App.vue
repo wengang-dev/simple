@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <sim-input v-model="value"
-               placeholder="forbid"
-               disabled>
-      <sim-btn slot="before"></sim-btn>
-      <sim-btn slot="after"></sim-btn>
-    </sim-input>
+    <sim-radio v-model="checked"
+               label='1' />
+    <sim-radio v-model="checked"
+               label='2' />
+    <sim-radio v-model="checked"
+               label='3'
+               disabled>单选项</sim-radio>
   </div>
 </template>
 
@@ -14,13 +15,13 @@ export default {
   name: "App",
   data() {
     return {
-      value: "",
+      checked: "1",
       sloted: "before"
     };
   },
   watch: {
-    value(val) {
-      console.log(val);
+    checked(val) {
+      console.log("fater value:", val);
     }
   },
   methods: {

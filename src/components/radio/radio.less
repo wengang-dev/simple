@@ -1,0 +1,39 @@
+.sim-radio-normal {
+  width: 15px;
+  height: 15px;
+  border: 1px solid lightgray;
+  //   cursor: pointer;
+  font-size: 14px;
+  &:hover {
+    border: 1px solid rgb(109, 194, 223);
+  }
+}
+.sim-radio-active {
+  width: 5px;
+  height: 5px;
+  border: 6px solid rgb(109, 194, 223);
+  transition: ease-in-out 0.1s;
+}
+.sim-radio {
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.sim-radio-text-active {
+  color: rgb(109, 194, 223) !important;
+}
+.sim-radio-text-normal {
+  color: lightgray;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.sim-radio-disabled {
+  color: lightgray !important;
+  background: #ffffff !important;
+  &:hover {
+    border-color: lightgray !important;
+  }
+}
+.sim-disabled-cursor {
+  cursor: no-drop !important;
+}

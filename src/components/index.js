@@ -2,10 +2,12 @@ import './index.less'
 
 import button from './button'
 import input from './input'
+import radio from './radio'
 
 const components = {
   button,
-  input
+  input,
+  radio
 }
 
 const install = function(Vue) {
