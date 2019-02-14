@@ -3,11 +3,13 @@ import './index.less'
 import button from './button'
 import input from './input'
 import radio from './radio'
+import checkbox from './checkbox'
 
 const components = {
   button,
   input,
-  radio
+  radio,
+  checkbox
 }
 
 const install = function(Vue) {

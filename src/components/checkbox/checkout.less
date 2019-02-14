@@ -1,0 +1,51 @@
+.sim-checkbox {
+  display: inline-block;
+  font-size: 0px;
+  border-radius: 3px;
+}
+.sim-checkbox-normal {
+  cursor: pointer;
+  color: @normalFontColor;
+}
+.sim-checkbox-disabled {
+  cursor: no-drop;
+  color: @disabledColor;
+}
+.sim-checkbox-active {
+  color: @activeColor;
+}
+.sim-checkbox-graph {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border: 1px solid @normalColor;
+  background: #ffffff;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: bold;
+  color: @normalFontColor;
+  vertical-align: middle;
+  &:hover {
+    border-color: @activeColor;
+  }
+}
+.sim-checkbox-graph-disabled {
+  &:hover {
+    border-color: @normalColor;
+  }
+}
+.sim-checkbox-text {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.sim-checkbox-text-active {
+  color: @activeColor;
+  font-weight: bold;
+}
+.sim-checkbox-graph-active {
+  color: @activeColor;
+  border-color: @activeColor;
+}

@@ -1,16 +1,16 @@
 .sim-radio-normal {
   width: 15px;
   height: 15px;
-  border: 1px solid lightgray;
+  border: 1px solid @normalColor;
   font-size: 14px;
   &:hover {
-    border: 1px solid rgb(109, 194, 223);
+    border: 1px solid @activeColor;
   }
 }
 .sim-radio-active {
   width: 5px;
   height: 5px;
-  border: 6px solid rgb(109, 194, 223);
+  border: 6px solid @activeColor;
   transition: ease-in-out 0.1s;
 }
 .sim-radio {
@@ -19,18 +19,18 @@
   vertical-align: middle;
 }
 .sim-radio-text-active {
-  color: rgb(109, 194, 223) !important;
+  color: @activeColor !important;
 }
 .sim-radio-text-normal {
-  color: lightgray;
+  color: @normalColor;
   vertical-align: middle;
   margin-left: 5px;
 }
 .sim-radio-disabled {
-  color: lightgray !important;
+  color: @normalColor !important;
   background: #ffffff !important;
   &:hover {
-    border-color: lightgray !important;
+    border-color: @normalColor !important;
   }
 }
 .sim-disabled-cursor {
