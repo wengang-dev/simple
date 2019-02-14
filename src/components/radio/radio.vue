@@ -1,5 +1,5 @@
 <template>
-  <span :class="disabled===undefined?'':'sim-disabled-cursor'">
+  <span :class="disabled===undefined?'sim-normal-cursor':'sim-disabled-cursor'">
     <div class="sim-radio"
          @click="selectRadio($event)"
          :class="[checked==label?'sim-radio-active':'sim-radio-normal',
