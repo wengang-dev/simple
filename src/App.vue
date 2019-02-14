@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <sim-checkbox v-model="value"
-                  disabled>选项</sim-checkbox>
-    <sim-checkbox v-model="value">选项</sim-checkbox>
+    <sim-checkbox-group v-model="selectList">
+      <template slot-scope="props">
+        <sim-checkbox label="选项一">选项1</sim-checkbox>
+        <sim-checkbox label=“选项二”>选项2</sim-checkbox>
+      </template>
+    </sim-checkbox-group>
+
   </div>
 </template>
 
@@ -11,12 +15,12 @@ export default {
   name: "App",
   data() {
     return {
-      value: false
+      selectList: ["1"]
     };
   },
   watch: {
-    value(val) {
-      console.log("fater value:", val);
+    selectList(val) {
+      // console.log("fater value:", val);
     }
   },
   methods: {

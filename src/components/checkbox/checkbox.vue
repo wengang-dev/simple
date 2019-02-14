@@ -5,10 +5,11 @@
         @click="change($event)">
     <span class="sim-checkbox-graph"
           :class="[disabled===undefined?'':'sim-checkbox-graph-disabled',
-          selectState?'sim-checkbox-graph-active':''
-          ]">{{selectText}}</span>
+          selectState&&disabled===undefined?'sim-checkbox-graph-active':''
+          ]"
+          v-text="selectText"></span>
     <span class="sim-checkbox-text"
-          :class="selectState?'sim-checkbox-text-active':''">
+          :class="selectState&&disabled===undefined?'sim-checkbox-text-active':''">
       <slot></slot>
     </span>
   </span>
@@ -27,18 +28,30 @@ export default {
     prop: "value",
     event: "change"
   },
+  computed: {},
   props: {
     disabled: {
       type: undefined | null,
       default: undefined
     },
     value: {
-      type: Boolean | Array,
-      default: false
+      type: Boolean | Array
     },
     label: {
       type: String,
       default: ""
+    },
+    selectlist: {
+      type: Array
+    }
+  },
+  watch: {
+    selectState(val) {
+      if (val) {
+        this.selectText = "√";
+      } else {
+        this.selectText = "";
+      }
     }
   },
   methods: {
@@ -47,32 +60,34 @@ export default {
         return;
       }
       this.selectState = !this.selectState;
-      if (this.selectState) {
-        this.selectText = "√";
-      } else {
-        this.selectText = "";
-      }
-      event.stopPropagation();
+      // event.stopPropagation();
       event.preventDefault();
-      event.cancleBubble = true;
+      // event.cancleBubble = true;
       event.returnValue = false;
       let val = null;
       if (!this.label) {
         // 代表使用的是chekbox
         val = !this.value;
-        console.log("label: ", this.label);
+        this.$emit("change", val);
       } else {
         // 代表使用的是checkbox-group
-        let index = this.value.indexOf(this.label);
-        val = this.value;
-        if (index !== -1) {
-          val.slice(index, index + 1);
+        let newValue = this.selectList;
+        console.log("Array is? ", Array.isArray(this.selectList));
+        let index = newValue.indexOf(this.label);
+        if (index === -1) {
+          newValue.push(label);
         } else {
-          val.push(this.label);
+          newValue.slice(index, index + 1);
         }
+        this.$parent.$emit("change", newValue);
       }
-      this.$emit("change", val);
     }
+  },
+  mounted() {
+    if (this.value === true) {
+      this.selectState = true;
+    }
+    console.log("", this.$props);
   }
 };
 </script>

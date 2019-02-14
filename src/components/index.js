@@ -4,12 +4,14 @@ import button from './button'
 import input from './input'
 import radio from './radio'
 import checkbox from './checkbox'
+import checkboxGroup from './checkbox-group'
 
 const components = {
   button,
   input,
   radio,
-  checkbox
+  checkbox,
+  checkboxGroup
 }
 
 const install = function(Vue) {
