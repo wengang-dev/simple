@@ -1,6 +1,6 @@
 <template>
   <span class="sim-checkbox-group">
-    <slot :selectlist="selectlist"></slot>
+    <slot></slot>
   </span>
 </template>
 
@@ -8,11 +8,11 @@
 export default {
   name: "simCheckboxGroup",
   model: {
-    prop: "selectlist",
+    prop: "selectList",
     event: "change"
   },
   props: {
-    selectlist: {
+    selectList: {
       type: Array
     }
   },
@@ -20,9 +20,6 @@ export default {
     return {
       list: null
     };
-  },
-  beforeMount() {
-    console.log("selectlist group:", this.selectlist);
   }
 };
 </script>

@@ -28,7 +28,12 @@ export default {
     prop: "value",
     event: "change"
   },
-  computed: {},
+  computed: {
+    // 获取parent的v-model绑定属性
+    parentVlaue() {
+      return this.$parent.selectList;
+    }
+  },
   props: {
     disabled: {
       type: undefined | null,
@@ -41,8 +46,8 @@ export default {
       type: String,
       default: ""
     },
-    selectlist: {
-      type: Array
+    selected: {
+      type: undefined | null
     }
   },
   watch: {
@@ -71,23 +76,40 @@ export default {
         this.$emit("change", val);
       } else {
         // 代表使用的是checkbox-group
-        let newValue = this.selectList;
-        console.log("Array is? ", Array.isArray(this.selectList));
-        let index = newValue.indexOf(this.label);
-        if (index === -1) {
-          newValue.push(label);
-        } else {
-          newValue.slice(index, index + 1);
-        }
-        this.$parent.$emit("change", newValue);
+        this.insertOrRmemove();
       }
+    },
+    insertOrRmemove() {
+      let newValue = this.parentVlaue;
+      let index = newValue.indexOf(this.label);
+      if (index === -1) {
+        newValue.push(this.label);
+        console.log("after insert", newValue);
+      } else {
+        newValue.splice(index, 1);
+        console.log("after remove：", newValue);
+      }
+      this.$parent.$emit("change", newValue);
     }
   },
+
   mounted() {
+    // 单独使用checkbox情况下
     if (this.value === true) {
       this.selectState = true;
     }
-    console.log("", this.$props);
+
+    // 包含在checkbox group里
+    // console.log(this.selected == "");
+    if (this.selected !== undefined) {
+      this.selectState = true;
+      let newValue = this.parentVlaue;
+      let index = newValue.indexOf(this.label);
+      if (index === -1) {
+        newValue.push(this.label);
+        this.$parent.$emit("change", newValue);
+      }
+    }
   }
 };
 </script>
