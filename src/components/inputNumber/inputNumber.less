@@ -1,0 +1,33 @@
+.sim-input-number-size-small {
+  font-size: 20px;
+}
+.sim-input-number {
+  border: 1px solid @normalColor;
+  display: inline-block;
+  height: 1.5em;
+  line-height: 1.5em;
+  border-radius: 0.2em;
+}
+.sim-input-number-input {
+  display: inline-block;
+  width: 3em;
+  height: 1.5em;
+  box-sizing: border-box;
+  text-align: center;
+  border: 0px;
+  border-left: 1px solid @normalColor;
+  border-right: 1px solid @normalColor;
+  &:focus {
+    .sim-input-number {
+      border-color: @activeColor;
+    }
+  }
+}
+.sim-input-number-sub,
+.sim-input-number-add {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+}

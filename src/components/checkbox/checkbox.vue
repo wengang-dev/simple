@@ -84,10 +84,8 @@ export default {
       let index = newValue.indexOf(this.label);
       if (index === -1) {
         newValue.push(this.label);
-        console.log("after insert", newValue);
       } else {
         newValue.splice(index, 1);
-        console.log("after remove：", newValue);
       }
       this.$parent.$emit("change", newValue);
     }
