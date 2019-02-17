@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <sim-input-number></sim-input-number>
+    <sim-input-number size='large'
+                      v-model="number"
+                      :max="max"
+                      :step="step"
+                      :min="min"></sim-input-number>
   </div>
 </template>
 
@@ -9,7 +13,10 @@ export default {
   name: "App",
   data() {
     return {
-      selectList: []
+      number: 0,
+      max: 10,
+      min: 0,
+      step: 2
     };
   },
   watch: {

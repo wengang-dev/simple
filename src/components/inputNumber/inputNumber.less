@@ -1,33 +1,64 @@
 .sim-input-number-size-small {
+  font-size: 15px;
+}
+.sim-input-number-size-normal {
   font-size: 20px;
 }
+.sim-input-number-size-large {
+  font-size: 25px;
+}
+.sim-input-number-disabled {
+  border-color: @disabledColor !important;
+  cursor: no-drop;
+  &:hover {
+    border-color: @disabledColor !important;
+  }
+}
 .sim-input-number {
+  user-select: none;
   border: 1px solid @normalColor;
   display: inline-block;
   height: 1.5em;
   line-height: 1.5em;
   border-radius: 0.2em;
+  &:hover {
+    border-color: @activeColor;
+    transition: ease-in-out 0.1s;
+  }
 }
 .sim-input-number-input {
-  display: inline-block;
-  width: 3em;
+  float: left;
+  width: 4em;
   height: 1.5em;
   box-sizing: border-box;
   text-align: center;
   border: 0px;
   border-left: 1px solid @normalColor;
   border-right: 1px solid @normalColor;
-  &:focus {
-    .sim-input-number {
-      border-color: @activeColor;
-    }
-  }
+}
+.sim-input-number-input-disabled {
+  color: @disabledFontColor;
 }
 .sim-input-number-sub,
 .sim-input-number-add {
   box-sizing: border-box;
-  display: inline-block;
+  float: left;
+  border: 0px;
   width: 1.5em;
   height: 1.5em;
   text-align: center;
+}
+.sim-input-nbumber-function-disabled {
+  color: @disabledFontColor;
+  cursor: no-drop;
+}
+.sim-input-nbumber-function-hover {
+  cursor: pointer;
+  transition: ease-in-out 0.1s;
+  &:hover {
+    color: @activeFontColor;
+  }
+  &:active {
+    color: @normalColor;
+  }
 }
