@@ -10,7 +10,9 @@
            :class="typeof disabled!=='undefined'?'sim-input-number-input-disabled ':''"
            type="text"
            :disabled='disabledState'
-           :value="number">
+           :value="number"
+           @focus="checkInput"
+           @blur="checkBlur($event)">
     <span class="sim-input-number-add"
           @click="add"
           :class="[typeof disabled!=='undefined'||maxState?'sim-input-nbumber-function-disabled':'sim-input-nbumber-function-hover']">+</span>
@@ -50,7 +52,8 @@ export default {
     return {
       disabledState: false,
       maxState: false,
-      minState: false
+      minState: false,
+      inputState: false
     };
   },
   watch: {
@@ -59,14 +62,37 @@ export default {
     }
   },
   methods: {
+    checkInput() {
+      this.inputState = true;
+      this.$emit("focus");
+    },
+    checkBlur(event) {
+      this.$emit("blue");
+      if (this.inputState) {
+        let value = event.target.value;
+        if (value > this.max) {
+          this.$emit("input", this.max);
+          event.target.value = this.max;
+        }
+        if (value < this.min) {
+          this.$emit("input", this.min);
+          event.target.value = this.min;
+        }
+        this.inputState = false;
+      }
+    },
     checkLimit(val) {
       if (val >= this.max) {
         this.maxState = true;
+        this.$emit("input", this.max);
+        this.$emit("change", this.max);
       } else {
         this.maxState = false;
       }
       if (val <= this.min) {
         this.minState = true;
+        this.$emit("input", this.min);
+        this.$emit("change", this.min);
       } else {
         this.minState = false;
       }
@@ -76,7 +102,9 @@ export default {
         typeof this.disabled === "undefined" &&
         (typeof this.min === "undefined" || this.number >= this.min + this.step)
       ) {
-        this.$emit("input", this.number - this.step);
+        let value = this.number - this.step;
+        this.$emit("input", value);
+        this.$emit("change", value);
       }
     },
     add() {
@@ -84,7 +112,9 @@ export default {
         typeof this.disabled === "undefined" &&
         (typeof this.max === "undefined" || this.number <= this.max - this.step)
       ) {
-        this.$emit("input", this.number + this.step);
+        let value = this.number + this.step;
+        this.$emit("input", value);
+        this.$emit("change", value);
       }
     }
   },
