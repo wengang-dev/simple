@@ -1,0 +1,101 @@
+.sim-select {
+  display: inline-block;
+  width: 6em;
+  height: 1.5em;
+  border: 1px solid @normalColor;
+  box-sizing: border-box;
+  border-radius: 3px;
+  cursor: pointer;
+  line-height: 1.5em;
+  position: relative;
+}
+.sim-select-active {
+  border-color: @activeColor;
+}
+.sim-select-show-value {
+  font-size: 0.8em;
+}
+.sim-select-size-normal {
+  font-size: 20px;
+}
+.sim-select-size-small {
+  font-size: 15px;
+}
+.sim-select-markArrow {
+  float: right;
+  line-height: inherit;
+  width: 1.5em;
+  height: 100%;
+  text-indent: 0px;
+  font-weight: lighter;
+  font-size: 0.8em;
+  text-align: center;
+  color: @normalFontColor;
+}
+.sim-select-markArrow-ratate-up {
+  animation: arrowRotateUp 0.3s linear 1;
+  animation-fill-mode: forwards;
+}
+.sim-select-markArrow-ratate-down {
+  animation: arrowRotateDown 0.3s linear 1;
+  animation-fill-mode: forwards;
+}
+@keyframes arrowRotateUp {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes arrowRotateDown {
+  0% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.sim-select-show {
+  user-select: none;
+  width: 100%;
+  font-size: inherit;
+  height: 100%;
+  text-align: left;
+  text-indent: 10px;
+}
+.sim-select-list {
+  padding-top: 5px;
+  width: 100%;
+  border: 1px solid @normalColor;
+  border-radius: 5px;
+  position: absolute;
+  top: 2.4em;
+  left: 0;
+  text-align: left;
+  text-indent: 0.5em;
+}
+.sim-select-list-arrow {
+  color: @normalColor;
+  font-size: 25px;
+  width: 13px;
+  height: 15px;
+  background: #ffffff;
+  float: left;
+  margin-top: -20px;
+  text-indent: -2px;
+  margin-left: 10px;
+}
+.simSelectList-enter-active,
+.simSelectList-leave-active {
+  transition: opacity 0.5s;
+}
+.simSelectList-enter, .simSelectList-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

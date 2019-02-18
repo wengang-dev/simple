@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <sim-input-number v-model="number"
-                      :max="max"
-                      :min="min"></sim-input-number>
+    <sim-select v-model="value"
+                size='normal'>
+      <sim-options v-for="item in options"
+                   :key="item.label"
+                   :label="item.label"
+                   :value="item.value"></sim-options>
+    </sim-select>
   </div>
 </template>
 
@@ -11,12 +15,17 @@ export default {
   name: "App",
   data() {
     return {
-      number: 0,
-      max: 10,
-      min: 0
+      options: [
+        { label: "1", value: "value1" },
+        { label: "2", value: "value2" },
+        { label: "3", value: "value3" }
+      ],
+      value: ""
     };
   },
-  watch: {},
+  watch: {
+    value(val) {}
+  },
   methods: {}
 };
 </script>
