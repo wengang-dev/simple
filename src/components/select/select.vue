@@ -2,8 +2,8 @@
   <div class="sim-select"
        :class="[rotateShow?'sim-select-active':'',size==='normal'?'sim-select-size-normal':'sim-select-size-small']">
     <div class="sim-select-show"><span class="sim-select-show-value">{{value.label}}</span>
-      <span class="sim-select-markArrow"
-            :class="[rotateShow?'sim-select-markArrow-ratate-up':'',rotateHidden?'sim-select-markArrow-ratate-down':'']">△</span>
+      <span class="sim-select-markArrow iconfont icon-down-arrow"
+            :class="[rotateShow?'sim-select-markArrow-ratate-up':'',rotateHidden?'sim-select-markArrow-ratate-down':'']"></span>
     </div>
     <transition name="simSelectList">
       <div class="sim-select-list"
