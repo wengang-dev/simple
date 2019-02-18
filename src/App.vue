@@ -1,12 +1,8 @@
 <template>
   <div id="app">
-    <sim-select v-model="value"
-                size='normal'>
-      <sim-options v-for="item in options"
-                   :key="item.label"
-                   :label="item.label"
-                   :value="item.value"></sim-options>
-    </sim-select>
+    <sim-cascader v-model="value">
+
+    </sim-cascader>
   </div>
 </template>
 

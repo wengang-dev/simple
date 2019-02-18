@@ -1,15 +1,15 @@
 <template>
-  <div class="sim-select"
-       :class="[rotateShow?'sim-select-active':'',size==='normal'?'sim-select-size-normal':'sim-select-size-small']">
-    <div class="sim-select-show"><span class="sim-select-show-value">{{value.label}}</span>
-      <span class="sim-select-markArrow iconfont icon-down-arrow"
-            :class="[rotateShow?'sim-select-markArrow-ratate-up':'',rotateHidden?'sim-select-markArrow-ratate-down':'']"></span>
+  <div class="sim-cascader"
+       :class="[rotateShow?'sim-cascader-active':'',size==='normal'?'sim-cascader-size-normal':'sim-cascader-size-small']">
+    <div class="sim-cascader-show"><span class="sim-cascader-show-value">{{value.label}}</span>
+      <span class="sim-cascader-markArrow iconfont icon-down-arrow"
+            :class="[rotateShow?'sim-cascader-markArrow-ratate-up':'',rotateHidden?'sim-cascader-markArrow-ratate-down':'']"></span>
     </div>
-    <transition name="simSelectList">
-      <div class="sim-select-list"
+    <transition name="simcascaderList">
+      <div class="sim-cascader-list"
            v-show="rotateShow">
-        <span class="sim-select-list-arrow">^</span>
-        <slot></slot>
+        <span class="sim-cascader-list-arrow">^</span>
+
       </div>
     </transition>
   </div>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "sim-select",
+  name: "sim-cascader",
   model: {
     prop: "value",
     event: "select"
@@ -61,8 +61,8 @@ export default {
         let event = e || window.event;
 
         if (
-          event.target.classList[0] === "sim-select-markArrow" ||
-          event.target.classList[0] === "sim-select-show"
+          event.target.classList[0] === "sim-cascader-markArrow" ||
+          event.target.classList[0] === "sim-cascader-show"
         ) {
           this.rotate();
         } else {

@@ -8,6 +8,7 @@ import checkboxGroup from './checkboxGroup'
 import inputNumber from './inputNumber'
 import select from './select'
 import options from './options'
+import cascader from './cascader'
 
 const components = {
   button,
@@ -17,7 +18,8 @@ const components = {
   checkboxGroup,
   inputNumber,
   select,
-  options
+  options,
+  cascader
 }
 
 const install = function(Vue) {
