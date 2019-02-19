@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <sim-cascader v-model="value">
+    <sim-cascader v-model="value"
+                  :options="firstValue">
 
     </sim-cascader>
   </div>
@@ -11,16 +12,55 @@ export default {
   name: "App",
   data() {
     return {
-      options: [
-        { label: "1", value: "value1" },
-        { label: "2", value: "value2" },
-        { label: "3", value: "value3" }
-      ],
-      value: ""
+      value: "",
+      firstValue: [
+        {
+          firstName: "一级选项1",
+          secondLevel: [
+            {
+              secondName: "二级选项1",
+              thirdLevel: [{ thirdName: "三级选项1" }]
+            }
+          ]
+        },
+        {
+          firstName: "一级选项2",
+          secondLevel: [
+            {
+              secondName: "二级选项2",
+              thirdLevel: [
+                { thirdName: "三级选项21" },
+                { thirdName: "三级选项22" },
+                { thirdName: "三级选项23" },
+                { thirdName: "三级选项24" },
+                { thirdName: "三级选项25" },
+                { thirdName: "三级选项26" },
+                { thirdName: "三级选项27" },
+                { thirdName: "三级选项28" },
+                { thirdName: "三级选项29" }
+              ]
+            }
+          ]
+        },
+        {
+          firstName: "一级选项3",
+          secondLevel: [
+            {
+              secondName: "二级选项3",
+              thirdLevel: [
+                { thirdName: "三级选项31" },
+                { thirdName: "三级选项32" }
+              ]
+            }
+          ]
+        }
+      ]
     };
   },
   watch: {
-    value(val) {}
+    value(val) {
+      console.log(val);
+    }
   },
   methods: {}
 };
