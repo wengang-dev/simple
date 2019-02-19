@@ -14,7 +14,7 @@
           <div class="sim-cascader-first">
             <div class="sim-cascader-options "
                  v-for="(item,index) of options"
-                 :key='item.firstName'
+                 :key='index'
                  :class="firstActive===item.firstName?'sim-cascader-options-active':''">
               <span class="sim-cascader-options-label sim-cascader-options-first"
                     :data-index="index">{{item.firstName}}</span>
@@ -29,7 +29,7 @@
               <span class="sim-cascader-options-label sim-cascader-options-second"
                     :data-index="index">{{item.secondName}}</span>
             </div>
-          </div>
+          </div>
           <div class="sim-cascader-third"
                v-if="cascaderThird">
             <div class="sim-cascader-options "
