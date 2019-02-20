@@ -9,6 +9,8 @@ import inputNumber from './inputNumber'
 import select from './select'
 import options from './options'
 import cascader from './cascader'
+import slider from './slider'
+import simSwitch from './switch'
 
 const components = {
   button,
@@ -19,7 +21,9 @@ const components = {
   inputNumber,
   select,
   options,
-  cascader
+  cascader,
+  slider,
+  simSwitch
 }
 
 const install = function(Vue) {
