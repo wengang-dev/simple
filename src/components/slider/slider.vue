@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <slot></slot>
+  <div class="sim-slider">
+    <div class="sim-slider-runway">
+      <div class=""></div>
+      <div class="sim-slider-point"></div>
+    </div>
   </div>
 </template>
 

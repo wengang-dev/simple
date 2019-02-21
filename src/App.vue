@@ -1,12 +1,8 @@
 <template>
   <div id="app">
-    <sim-switch v-model="value"
-                textActive="未选择"
-                textInactive="要选中"
-                colorInactive="#13ce66"
-                colorActive="#ff4949">
+    <sim-slider>
 
-    </sim-switch>
+    </sim-slider>
   </div>
 </template>
 
