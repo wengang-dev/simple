@@ -1,4 +1,66 @@
-.sim-slier {
+.sim-slider {
   width: 70%;
-  height: 10px;
+  height: 50px;
+}
+.sim-slider-runway {
+  user-select: none;
+  width: 100%;
+  height: 6px;
+  top: 23px;
+  background: @normalBgColor;
+  position: relative;
+}
+.sim-slider-bar {
+  height: inherit;
+  position: absolute;
+  background: @activeColor;
+}
+.sim-slider-point {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  transform: translate(-50%);
+  top: -13px;
+  text-align: center;
+  line-height: 28px;
+  cursor: pointer;
+  &:hover {
+    .sim-slider-drag {
+      &:hover {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    .sim-slider-proportion-transition {
+      opacity: 1;
+    }
+  }
+}
+.sim-slider-drag {
+  vertical-align: middle;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 2px solid @activeColor;
+  background: #ffffff;
+  transition: width 0.2s, height 0.2s;
+}
+.sim-slider-drag-hover {
+  width: 25px !important;
+  height: 25px !important;
+}
+.sim-slider-proportion {
+  position: absolute;
+  top: -100%;
+  width: 100%;
+  left: 0px;
+  opacity: 0;
+  text-align: center;
+  transition: opacity 0.6s;
+  font-size: 12px;
+}
+.sim-slider-proportion-show {
+  opacity: 1 !important;
 }

@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <sim-slider>
+    <div class="slider-box">
+      <sim-slider v-model="value">
+      </sim-slider>
+    </div>
 
-    </sim-slider>
   </div>
 </template>
 
@@ -27,13 +29,10 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.slider-box {
+  width: 800px;
+  height: 20px;
+  margin: 200px auto;
 }
 </style>
