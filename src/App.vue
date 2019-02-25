@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <sim-rate showText
-              v-model="value"
-              :colors="colors"
-              :icon-classes='iconClasses'></sim-rate>
+    <sim-process :percentage="50"></sim-process>
   </div>
 </template>
 
@@ -13,7 +10,7 @@ export default {
   data() {
     return {
       colors: ["#99A9BF", "#F7BA2A", "#FF9900"],
-      value: "init",
+      value: 0,
       textActive: "",
       textInactive: "",
       colorInactive: "",

@@ -12,6 +12,7 @@ import cascader from './cascader'
 import slider from './slider'
 import simSwitch from './switch'
 import simRate from './rate'
+import simProcess from './process'
 
 const components = {
   button,
@@ -25,7 +26,8 @@ const components = {
   cascader,
   slider,
   simSwitch,
-  simRate
+  simRate,
+  simProcess
 }
 
 const install = function(Vue) {
