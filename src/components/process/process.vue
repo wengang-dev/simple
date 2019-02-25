@@ -1,11 +1,21 @@
 <template>
   <div class="sim-process">
-    <div class="sim-process-runway">
+    <div class="sim-process-runway"
+         :class="typeof textInside !=='undefined'?'sim-process-runway-inside':''">
+      <span class="sim-inside-init-percentage"
+            v-if="percentage<10&&typeof textInside !=='undefined'">0%</span>
       <div class="sim-process-bar"
-           :style="{width:percentage+'%',background:currentColor}"></div>
+           :class="[typeof status !=='undefined'?status==='success'?'sim-process-bar-success':'sim-process-bar-exception':'',
+           typeof textInside!=='undefined'?'sim-process-bar-inside':'']"
+           :style="{width:percentage+'%',backgroundColor:status==='success'?'#67c23a':status==='exception'?'#f56c6c': currentColor}">
+        <span v-if="typeof textInside!=='undefined'"
+              class="sim-process-inside-percentage">{{percentage}}%</span></div>
     </div>
-    <span v-if="typeof textInside !=='undeifned'"
+    <span v-if="typeof textInside ==='undefined'&&typeof status ==='undefined'"
           class="sim-percentage-text">{{percentage}}%</span>
+    <span v-if="typeof status !=='undefined'"
+          class="iconfont"
+          :class="[status==='success'?'sim-status-success':'sim-status-exception',status==='success'?'icon-success':'icon-error']"></span>
   </div>
 </template>
 
@@ -20,34 +30,26 @@ export default {
     color: {
       type: String
     },
-    textInside: {
-      type: Boolean
+    textInside: {},
+    status: {
+      type: String
     }
   },
   data() {
     return {
-      bgColor: ["lightskyblue", "skyblue", "lightgreen"],
-      currentColor: ""
+      currentColor: "#409EFF"
     };
   },
-  watch: {
-    percentage(val) {
-      this.checkColor(val);
-    }
-  },
+  watch: {},
   methods: {
-    checkColor(val) {
-      if (val < 33) {
-        this.currentColor = this.bgColor[0];
-      } else if (val < 66) {
-        this.currentColor = this.bgColor[1];
-      } else {
-        this.currentColor = this.bgColor[2];
+    checkColor() {
+      if (typeof this.color !== undefined) {
+        this.currentColor = this.color;
       }
     }
   },
   mounted() {
-    this.checkColor(this.percentage);
+    this.checkColor();
   }
 };
 </script>

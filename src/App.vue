@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <sim-process :percentage="50"></sim-process>
+    <sim-process :percentage="value"
+                 color='yellow'></sim-process>
+    <button @click="start">start</button>
+    <button @click="reset">reset</button>
+    <!-- status='success' -->
   </div>
 </template>
 
@@ -18,12 +22,21 @@ export default {
       iconClasses: ["icon-face-sad", "icon-face-normal", "icon-face-happy"]
     };
   },
-  watch: {
-    value(val) {
-      console.log("app value: ", val);
+  watch: {},
+  methods: {
+    animation() {
+      this.value++;
+      if (this.value < 100) {
+        window.requestAnimationFrame(this.animation);
+      }
+    },
+    start() {
+      window.requestAnimationFrame(this.animation);
+    },
+    reset() {
+      this.value = 0;
     }
-  },
-  methods: {}
+  }
 };
 </script>
 
