@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <sim-rate showText
-              :colors="colors"></sim-rate>
+              v-model="value"
+              :colors="colors"
+              :icon-classes='iconClasses'></sim-rate>
   </div>
 </template>
 
@@ -11,16 +13,17 @@ export default {
   data() {
     return {
       colors: ["#99A9BF", "#F7BA2A", "#FF9900"],
-      value: false,
+      value: "init",
       textActive: "",
       textInactive: "",
       colorInactive: "",
-      colorActive: ""
+      colorActive: "",
+      iconClasses: ["icon-face-sad", "icon-face-normal", "icon-face-happy"]
     };
   },
   watch: {
     value(val) {
-      // console.log("app value: ", val);
+      console.log("app value: ", val);
     }
   },
   methods: {}
