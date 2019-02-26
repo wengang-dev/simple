@@ -13,6 +13,7 @@ import slider from './slider'
 import simSwitch from './switch'
 import simRate from './rate'
 import simProcess from './process'
+import simTree from './tree'
 
 const components = {
   button,
@@ -27,7 +28,8 @@ const components = {
   slider,
   simSwitch,
   simRate,
-  simProcess
+  simProcess,
+  simTree
 }
 
 const install = function(Vue) {

@@ -1,0 +1,33 @@
+.sim-tree {
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+  line-height: 25px;
+  float: left;
+}
+.sim-tree-levels {
+  width: 100%;
+  line-height: 25px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-left: 20px;
+  //   overflow: hidden;
+  float: left;
+}
+.sim-tree-label {
+  display: block;
+  cursor: pointer;
+  &:hover {
+    background-color: @activeBgColor;
+  }
+}
+.sim-solid-right-arrow {
+  color: @normalColor;
+  font-size: 14px;
+  margin-right: 5px;
+  transition: transform 0.5s;
+  display: inline-block;
+}
+.sim-tree-label-show {
+  transform: rotate(90deg);
+}
