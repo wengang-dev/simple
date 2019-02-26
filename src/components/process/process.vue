@@ -43,7 +43,8 @@ export default {
   watch: {},
   methods: {
     checkColor() {
-      if (typeof this.color !== undefined) {
+      console.log(typeof this.color);
+      if (typeof this.color !== "undefined") {
         this.currentColor = this.color;
       }
     }

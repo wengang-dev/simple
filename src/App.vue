@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <sim-process :percentage="value"
-                 color='yellow'></sim-process>
-    <button @click="start">start</button>
-    <button @click="reset">reset</button>
-    <!-- status='success' -->
+
   </div>
 </template>
 
