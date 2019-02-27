@@ -6,15 +6,20 @@
          @click="checkLevels(index,$event)">
       <div class="sim-tree-label"
            @click="click(item[defaultProps.label])">
-        <span v-if="item[defaultProps.children]"
-              :class="[levelsShowState[index]?'sim-tree-label-show':'']"
-              class=" iconfont icon-solid-right-arrow sim-solid-right-arrow"></span>
+        <span class=" sim-solid-right-arrow">
+          <span :class="[levelsShowState[index]?'sim-tree-label-show':'']"
+                v-if="item[defaultProps.children]"
+                class=" iconfont icon-solid-right-arrow icon-solid-right-arrow-display"></span>
+        </span>
         {{item[defaultProps.label]}}
       </div>
-      <sim-tree class="sim-tree-secondary"
+
+      <sim-tree v-if="item[defaultProps.children]"
+                class="sim-tree-secondary"
                 :data="item[defaultProps.children]"
                 :defaultProps="defaultProps"
                 v-show="secondaryShow[index]"></sim-tree>
+
     </div>
 
   </div>
@@ -50,10 +55,10 @@ export default {
         this.$set(this.levelsShowState, index, false);
         this.$set(this.secondaryShow, index, false);
       }
+    },
+    click(label) {
+      this.$emit("click", label);
     }
-  },
-  click(label) {
-    this.$emit("click", label);
   }
 };
 </script>
