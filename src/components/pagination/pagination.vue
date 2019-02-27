@@ -2,17 +2,20 @@
   <div class='sim-pagination'
        :class="typeof small ==='undefined'?'':'sim-pagination-small'">
     <span class="sim-pagination-prev"
+          :class="activePage==1?'sim-pagination-disabled':''"
           @click="pageDown"><span class="sim-pagination-arrow-text">&lt;</span> </span>
     <div class="sim-page-box">
       <span v-for="(item,index) in showAccount"
             class="sim-page-span"
-            :key="item">
+            :key="item"
+            @click="jump(pageShowText(item,index),index)">
         <span class="sim-page-span-text"
               :class="pageShowText(item,index)===activePage?'sim-page-active':''"
               v-text="pageShowText(item,index)"></span>
       </span>
     </div>
     <span class="sim-pagination-next "
+          :class="activePage==total?'sim-pagination-disabled':''"
           @click="pageUp"><span class="sim-pagination-arrow-text">&gt;</span> </span>
   </div>
 </template>
@@ -57,7 +60,10 @@ export default {
           return this.baseAccount + page;
         }
       } else {
-        if (this.activePage <= this.diff) {
+        if (this.activePage < this.diff) {
+          if (index == 0) {
+            return 1;
+          }
           if (index == this.showAccount - 2) {
             return "...";
           }
@@ -65,7 +71,7 @@ export default {
             return this.total;
           }
           return this.baseAccount + page;
-        } else if (this.activePage >= this.total - this.diff) {
+        } else if (this.activePage > this.total - this.diff) {
           if (index == 1) {
             return "...";
           }
@@ -79,6 +85,7 @@ export default {
         }
       }
     },
+    jump(activeIndex, index) {},
     pageDown() {
       if (this.activePage > 1) {
         this.activePage--;
