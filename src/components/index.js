@@ -14,6 +14,7 @@ import simSwitch from './switch'
 import simRate from './rate'
 import simProcess from './process'
 import simTree from './tree'
+import simPagination from './pagination'
 
 const components = {
   button,
@@ -29,7 +30,8 @@ const components = {
   simSwitch,
   simRate,
   simProcess,
-  simTree
+  simTree,
+  simPagination
 }
 
 const install = function(Vue) {

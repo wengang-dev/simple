@@ -1,0 +1,50 @@
+.sim-pagination {
+  display: inline-block;
+  font-size: 20px;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+}
+.sim-pagination-small {
+  font-size: 10px;
+}
+.sim-pagination-prev,
+.sim-pagination-next {
+  float: left;
+  width: 1.5em;
+  //   line-height: 1.5em;
+  height: 1.5em;
+  font-size: 1em;
+  font-weight: bold;
+  color: @normalFontColor;
+  cursor: pointer;
+  &:hover {
+    color: @activeFontColor;
+  }
+}
+.sim-page-box {
+  float: left;
+  margin: 0 10px;
+  height: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+.sim-page-active {
+  color: @activeFontColor;
+}
+.sim-page-span {
+  float: left;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  color: @normalFontColor;
+  cursor: pointer;
+  &:hover {
+    color: @activeFontColor;
+  }
+}
+.sim-page-span-text {
+  font-size: 0.7em;
+}
