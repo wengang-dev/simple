@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <sim-badge value='1'
-               @click="click"
-               type='primary'>
-    </sim-badge>
+    <sim-alert title="成功提示的文案"
+               type="error"
+               description="这是辅助文案"
+               :closeable='false'></sim-alert>
+    <!-- closeText="知道了" -->
+
   </div>
 </template>
 
