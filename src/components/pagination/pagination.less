@@ -4,6 +4,7 @@
   height: 1.5em;
   line-height: 1.5em;
   text-align: center;
+  user-select: none;
 }
 .sim-pagination-small {
   font-size: 10px;
@@ -47,4 +48,11 @@
 }
 .sim-page-span-text {
   font-size: 0.7em;
+}
+.sim-pagination-disabled {
+  cursor: no-drop;
+  color: @disabledFontColor;
+  &:hover {
+    color: @disabledFontColor;
+  }
 }
