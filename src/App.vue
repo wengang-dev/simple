@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <sim-pagination :total='12'></sim-pagination>
+    <sim-badge value='1'
+               @click="click"
+               type='primary'>
+    </sim-badge>
   </div>
 </template>
 
@@ -12,17 +15,8 @@ export default {
   },
   watch: {},
   methods: {
-    animation() {
-      this.value++;
-      if (this.value < 100) {
-        window.requestAnimationFrame(this.animation);
-      }
-    },
-    start() {
-      window.requestAnimationFrame(this.animation);
-    },
-    reset() {
-      this.value = 0;
+    click() {
+      // alert("click");
     }
   }
 };
@@ -33,5 +27,6 @@ export default {
   text-align: center;
   height: 700px;
   text-align: center;
+  padding-top: 100px;
 }
 </style>

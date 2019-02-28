@@ -1,0 +1,40 @@
+.sim-badge {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid @normalColor;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: '微软雅黑';
+  &:hover {
+    background-color: rgb(231, 241, 248);
+    border-color: rgb(189, 221, 243);
+    color: @activeFontColor;
+  }
+  &:active {
+    border-color: rgb(52, 172, 252);
+  }
+}
+.sim-badge-message-account {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  height: 16px;
+  border-radius: 8px;
+  line-height: 16px;
+  padding: 0px 5px;
+  font-size: 12px;
+  color: #ffffff;
+  transform: translateY(-50%) translateX(100%);
+}
+.sim-badge-message-normal {
+  background-color: #f56c6c;
+}
+.sim-badge-message-primary {
+  background-color: #409eff;
+}
+.sim-badge-message-warning {
+  background-color: #e6a23c;
+}

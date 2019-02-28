@@ -15,6 +15,7 @@ import simRate from './rate'
 import simProcess from './process'
 import simTree from './tree'
 import simPagination from './pagination'
+import simBadge from './badge'
 
 const components = {
   button,
@@ -31,7 +32,8 @@ const components = {
   simRate,
   simProcess,
   simTree,
-  simPagination
+  simPagination,
+  simBadge
 }
 
 const install = function(Vue) {
