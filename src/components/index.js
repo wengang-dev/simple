@@ -17,6 +17,7 @@ import simTree from './tree'
 import simPagination from './pagination'
 import simBadge from './badge'
 import alert from './alert'
+import loading from './loading'
 
 const components = {
   button,
