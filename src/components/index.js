@@ -19,6 +19,7 @@ import simBadge from './badge'
 import alert from './alert'
 import loading from './loading'
 import carousel from './carousel'
+import carouselItem from './carouselItem'
 
 const components = {
   button,
@@ -38,7 +39,8 @@ const components = {
   simPagination,
   simBadge,
   alert,
-  carousel
+  carousel,
+  carouselItem
 }
 
 const install = function(Vue) {

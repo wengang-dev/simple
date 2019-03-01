@@ -23,7 +23,20 @@ export default {
   computed: {
     items() {
       return this.$parent.list;
+    },
+    getItemWidth() {
+      return this.$slots.default[0].elm.offsetWidth;
+    },
+    getItemLength() {
+      if (Array.isArray(this.$parent.list)) {
+        return this.$parent.list.length;
+      } else {
+        return parseInt(this.$parent.list);
+      }
     }
+  },
+  mounted() {
+    console.log();
   }
 };
 </script>

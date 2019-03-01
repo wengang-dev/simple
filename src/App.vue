@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <sim-carousel>
+      <sim-carousel-item v-for="item in list"
+                         :key="item">
+        <h2>item</h2>
+      </sim-carousel-item>
     </sim-carousel>
   </div>
 </template>
