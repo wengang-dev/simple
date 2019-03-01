@@ -1,0 +1,54 @@
+.sim-carousel {
+  overflow-x: hidden;
+  position: relative;
+}
+.sim-carousel-container {
+  overflow: hidden;
+  height: 400px;
+}
+.sim-carousel-indicators {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.sim-carousel-arrow,
+.sim-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  color: #ffffff;
+  background-color: rgba(31, 45, 61, 0.11);
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    background-color: rgba(31, 45, 61, 0.3);
+  }
+  &:active {
+    background-color: rgba(31, 45, 61, 0.2);
+  }
+}
+.sim-carousel-arrow-next {
+  right: 0px;
+}
+.sim-carousel-arrow-prev {
+  left: 0px;
+}
+.sim-carousel-indicator {
+  cursor: pointer;
+  list-style: none;
+  width: 20px;
+  height: 2px;
+  background-color: rgba(161, 164, 165, 0.3);
+  float: left;
+  margin-right: 3px;
+}
+.sim-carousel-indicator-active {
+  background-color: #ffffff;
+}
