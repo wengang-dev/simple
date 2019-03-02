@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <sim-carousel>
+    <sim-carousel height="400px">
       <sim-carousel-item v-for="item in list"
                          :key="item">
         <h2>item</h2>
@@ -29,7 +29,7 @@ export default {
 <style>
 #app {
   width: 800px;
-  height: 400px;
+  height: 200px;
   margin: 0 auto;
 }
 </style>

@@ -1,33 +1,46 @@
 .sim-carousel {
-  overflow-x: hidden;
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 .sim-carousel-container {
   overflow: hidden;
   position: relative;
-  height: 400px;
+  width: 100%;
+  height: 100%;
 }
 .sim-carousel-indicators {
   position: absolute;
-  bottom: 0px;
+  bottom: 10px;
   left: 50%;
   transform: translate(-50%);
+  z-index: 3;
 }
 .sim-carousel-arrow,
 .sim-carousel-arrow {
   position: absolute;
+  z-index: 3;
   top: 50%;
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
   font-size: 30px;
   color: #ffffff;
-  background-color: rgba(31, 45, 61, 0.11);
-  border-radius: 50%;
   text-align: center;
   font-weight: bold;
+}
+.sim-carousel-arrow-next {
+  right: 0px;
+}
+.sim-carousel-icon-arrow {
+  border-radius: 50%;
+  width: 100%;
+  display: block;
+  height: 100%;
+  line-height: 40px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s;
+  background-color: rgba(31, 45, 61, 0.11);
   &:hover {
     background-color: rgba(31, 45, 61, 0.3);
   }
@@ -35,11 +48,17 @@
     background-color: rgba(31, 45, 61, 0.2);
   }
 }
-.sim-carousel-arrow-next {
-  right: 0px;
+.sim-carousel-arrow-next-hidden {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.sim-carousel-arrow-prev-hidden {
+  transform: translateX(-100%);
+  opacity: 0;
 }
 .sim-carousel-arrow-prev {
   left: 0px;
+  transition: transform 0.3s, display 0s 0.3s;
 }
 .sim-carousel-indicator {
   cursor: pointer;
