@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <sim-pagination :total="20"
-                    :pageCount="7"
-                    background></sim-pagination>
   </div>
 </template>
 
@@ -28,5 +25,6 @@ export default {
   width: 800px;
   height: 200px;
   margin: 0 auto;
+  padding-top: 100px;
 }
 </style>
