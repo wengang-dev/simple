@@ -88,8 +88,8 @@ export default {
     jump(activeIndex) {
       if (activeIndex >= this.diff) {
         this.baseAccount = activeIndex - this.diff;
-        this.activePage = activeIndex;
       }
+      this.activePage = activeIndex;
     },
     pageDown() {
       if (this.activePage > 1) {

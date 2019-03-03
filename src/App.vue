@@ -1,11 +1,6 @@
 <template>
   <div id="app">
-    <sim-carousel height="400px">
-      <sim-carousel-item v-for="item in list"
-                         :key="item">
-        <h2>item</h2>
-      </sim-carousel-item>
-    </sim-carousel>
+    <sim-pagination :total="20"></sim-pagination>
   </div>
 </template>
 
