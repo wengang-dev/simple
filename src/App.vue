@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <sim-pagination :total="20"></sim-pagination>
+    <sim-pagination :total="20"
+                    :pageCount="7"
+                    background></sim-pagination>
   </div>
 </template>
 
