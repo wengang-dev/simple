@@ -39,7 +39,8 @@ export default {
       activePage: 1,
       showAccount: 0,
       baseAccount: 0,
-      diff: 0
+      diff: 0,
+      oldActiveIndex: -1
     };
   },
   computed: {},
@@ -88,6 +89,8 @@ export default {
     jump(activeIndex) {
       if (activeIndex >= this.diff) {
         this.baseAccount = activeIndex - this.diff;
+      } else {
+        this.baseAccount = 0;
       }
       this.activePage = activeIndex;
     },
