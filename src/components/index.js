@@ -20,6 +20,10 @@ import alert from './alert'
 import loading from './loading'
 import carousel from './carousel'
 import carouselItem from './carouselItem'
+import simDropdown from './dropDown/simDropdown'
+import simDropdownMenu from './dropDown/simDropdownMenu'
+import simDropdownItem from './dropDown/simDropdownItem'
+import simPopover from './popover'
 
 const components = {
   button,
@@ -40,7 +44,11 @@ const components = {
   simBadge,
   alert,
   carousel,
-  carouselItem
+  carouselItem,
+  simDropdown,
+  simDropdownMenu,
+  simDropdownItem,
+  simPopover
 }
 
 const install = function(Vue) {
