@@ -1,5 +1,12 @@
 <template>
   <div id="app">
+    <sim-dropdown>
+      <span>下拉列表</span>
+      <sim-dropdown-menu slot="slot">
+        <sim-dropdown-item v-for="(item,index) in list"
+                           :key="index"><span>{{item}}</span> </sim-dropdown-item>
+      </sim-dropdown-menu>
+    </sim-dropdown>
   </div>
 </template>
 
