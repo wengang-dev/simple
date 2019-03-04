@@ -23,6 +23,7 @@ import carouselItem from './carouselItem'
 import simDropdown from './dropDown/simDropdown'
 import simDropdownMenu from './dropDown/simDropdownMenu'
 import simDropdownItem from './dropDown/simDropdownItem'
+import simPopover from './popover'
 
 const components = {
   button,
@@ -46,7 +47,8 @@ const components = {
   carouselItem,
   simDropdown,
   simDropdownMenu,
-  simDropdownItem
+  simDropdownItem,
+  simPopover
 }
 
 const install = function(Vue) {
