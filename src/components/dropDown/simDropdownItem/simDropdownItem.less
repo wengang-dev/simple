@@ -1,7 +1,11 @@
 .sim-dropdown-item {
-  width: 100%;
   display: block;
-  padding: 5px 0px;
   text-align: center;
-  font-size: 13px;
+  color: @normalFontColor;
+  cursor: pointer;
+  white-space: nowrap;
+  &:hover {
+    background: rgba(64, 158, 255, 0.1);
+    color: @activeFontColor;
+  }
 }
