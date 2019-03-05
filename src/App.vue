@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <sim-popover title='标题'
-                 content='这是一段提示性的文字！这是一段提示性的文字！这是一段提示性的文字！'></sim-popover>
+    <div class="container">
+      <sim-collapse></sim-collapse>
+    </div>
   </div>
 </template>
 
@@ -28,5 +29,8 @@ export default {
   height: 200px;
   margin: 0 auto;
   padding-top: 100px;
+}
+.container {
+  width: 300px;
 }
 </style>

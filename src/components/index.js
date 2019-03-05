@@ -24,7 +24,8 @@ import simDropdown from './dropDown/simDropdown'
 import simDropdownMenu from './dropDown/simDropdownMenu'
 import simDropdownItem from './dropDown/simDropdownItem'
 import simPopover from './popover'
-
+import simCollapse from './collapse'
+import simCollapseItem from './collapseItem'
 const components = {
   button,
   input,
@@ -48,7 +49,9 @@ const components = {
   simDropdown,
   simDropdownMenu,
   simDropdownItem,
-  simPopover
+  simPopover,
+  simCollapse,
+  simCollapseItem
 }
 
 const install = function(Vue) {
