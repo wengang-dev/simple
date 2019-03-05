@@ -33,26 +33,42 @@
   vertical-align: middle;
 }
 .sim-page-active {
-  color: @activeFontColor;
+  color: @activeFontColor !important;
 }
 .sim-page-span {
   float: left;
   width: 1.5em;
   height: 1.5em;
   text-align: center;
-  color: @normalFontColor;
+  // color: @normalFontColor;
+  margin: 0 3px;
   cursor: pointer;
-  &:hover {
-    color: @activeFontColor;
-  }
 }
 .sim-page-span-text {
   font-size: 0.7em;
+  border-radius: 0.2em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: rgb(96, 98, 102);
+  transition: color 0.1s;
+  &:hover {
+    color: @activeFontColor;
+  }
 }
 .sim-pagination-disabled {
   cursor: no-drop;
   color: @disabledFontColor;
   &:hover {
     color: @disabledFontColor;
+  }
+}
+.sim-page-span-background {
+  background: rgb(244, 244, 245);
+}
+.sim-page-active-background {
+  background: rgb(64, 158, 255);
+  color: rgb(255, 255, 255);
+  &:hover {
+    color: rgb(255, 255, 255);
   }
 }

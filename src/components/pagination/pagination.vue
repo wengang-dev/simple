@@ -10,7 +10,7 @@
             :key="item"
             @click="jump(pageShowText(item,index),index)">
         <span class="sim-page-span-text"
-              :class="pageShowText(item,index)===activePage?'sim-page-active':''"
+              :class="[pageShowText(item,index)===activePage?typeof background!=='undefined'?'sim-page-active-background':'sim-page-active':'',typeof background!=='undefined'?'sim-page-span-background':'']"
               v-text="pageShowText(item,index)"></span>
       </span>
     </div>
