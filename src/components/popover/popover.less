@@ -29,37 +29,71 @@
 }
 .sim-popover-arrow {
   position: absolute;
+}
+.sim-popover-arrow-container {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  span {
+    width: 0px;
+    height: 0px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+  }
+}
+.sim-popover-arrow-location-top {
   top: 0px;
-  transform: translateY(-100%);
-  .sim-popover-arrow-container {
-    position: relative;
-    span {
-      width: 0px;
-      height: 0px;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid white;
-      position: absolute;
-    }
-    .bot {
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid white;
-      top: 50%;
-      left: 0px;
-      transform: translateY(-19px);
-      z-index: 2;
-    }
-    .top {
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid @normalColor;
-      top: 50%;
-      left: 0px;
-      transform: translateY(-20px);
-    }
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+.sim-popover-triangle-direction-top {
+  .bot {
+    border-bottom: 10px solid white;
+    left: 0px;
+    z-index: 2;
+  }
+  .top {
+    border-bottom: 10px solid @normalColor;
+    left: 0px;
+    transform: translateY(-1px);
+  }
+}
+.sim-popover-triangle-direction-bottom {
+  .bot {
+    border-top: 10px solid white;
+    left: 0px;
+    z-index: 2;
+  }
+  .top {
+    border-top: 10px solid @normalColor;
+    left: 0px;
+    transform: translateY(1px);
+  }
+}
+.sim-popover-triangle-direction-left {
+  .bot {
+    border-right: 10px solid white;
+    left: 0px;
+    z-index: 2;
+  }
+  .top {
+    border-right: 10px solid @normalColor;
+    left: 0px;
+    transform: translateX(-1px);
+  }
+}
+.sim-popover-triangle-direction-right {
+  .bot {
+    border-left: 10px solid white;
+    left: 0px;
+    z-index: 2;
+  }
+  .top {
+    border-left: 10px solid @normalColor;
+    left: 0px;
+    transform: translateX(1px);
   }
 }
