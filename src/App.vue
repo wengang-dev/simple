@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <sim-popover title='标题'
-                 content='这是一段提示性的文字！这是一段提示性的文字！这是一段提示性的文字！'></sim-popover>
+                 content='这是一段提示性的文字!这是一段提示性的文字!这是一段提示性的文字!'
+                 placement='left'
+                 type="click"
+                 width='100px'>
+      <sim-btn slot="reference">popover</sim-btn>
+    </sim-popover>
   </div>
 </template>
 
