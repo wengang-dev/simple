@@ -1,24 +1,19 @@
 .sim-collapse {
   width: 100%;
   overflow: hidden;
-}
-.sim-collapse-item-container {
-  height: 0px;
-  overflow: hidden;
-  transition: height 0.5s;
-}
-
-.sim-collapse-item {
-  width: 300px;
-  height: 100px;
-  background-color: lightskyblue;
-}
-.under-item {
-  height: 100px;
-  background: yellowgreen;
-}
-.click {
-  height: 100px;
-  text-align: center;
-  line-height: 100px;
+  padding: 20px;
+  border: 1px solid @normalColor;
+  position: relative;
+  &:first-child {
+    &:before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      width: calc(100% - 40px);
+      height: 1px;
+      background-color: @normalColor;
+      z-index: 2;
+    }
+  }
 }

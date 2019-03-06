@@ -1,36 +1,39 @@
 <template>
-  <div class="sim-collapse">
-    <div class="click"
-         @click="click">click!click!click!</div>
-    <div class="sim-collapse-item-container"
-         :style="{height:showState?itemHeight+'px':'0px'}">
-      <div class="sim-collapse-item"
-           ref="collapseItem"></div>
-    </div>
-    <div class="under-item"></div>
-
+  <div class="sim-collapse"
+       ref="simCollapse">
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
   name: "sim-collapse",
+  model: {
+    prop: "value",
+    event: "change"
+  },
+  props: {
+    value: { type: String | Array },
+    accordion: {}
+  },
   data() {
     return {
-      showState: false
+      nameTogether: null,
+      activeName: null
     };
   },
-  computed: {
-    itemHeight() {
-      return this.$refs.collapseItem.offsetHeight;
-    }
-  },
   methods: {
-    click() {
-      this.showState = !this.showState;
+    mountListenCustomEvent() {
+      this.$refs.simCollapse.addEventListener("simAccordion", event => {
+        if (typeof this.accordion !== "undefined") {
+          this.activeName = event.detail.name;
+        }
+      });
     }
   },
-  mounted() {}
+  mounted() {
+    this.mountListenCustomEvent();
+  }
 };
 </script>
 
