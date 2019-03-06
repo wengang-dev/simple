@@ -1,5 +1,6 @@
 <template>
-  <div class='sim-tree'>
+  <div class='sim-tree'
+       v-if="data">
     <div v-for="(item,index) of data"
          class="sim-tree-levels"
          :key='item[defaultProps.label]'
@@ -14,12 +15,10 @@
         {{item[defaultProps.label]}}
       </div>
 
-      <sim-tree v-if="item[defaultProps.children]"
-                class="sim-tree-secondary"
+      <sim-tree class="sim-tree-secondary"
                 :data="item[defaultProps.children]"
                 :defaultProps="defaultProps"
                 v-show="secondaryShow[index]"></sim-tree>
-
     </div>
 
   </div>

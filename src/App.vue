@@ -1,27 +1,8 @@
 <template>
   <div id="app">
     <div class="container">
-      <sim-collapse v-model="value"
-                    accordion>
-        <sim-collapse-item title="我是标题!"
-                           name='1'>
-          <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；
-          </div>
-          <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
-        </sim-collapse-item>
-        <sim-collapse-item title="我是标题!"
-                           name='2'>
-          <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；
-          </div>
-          <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
-        </sim-collapse-item>
-        <sim-collapse-item title="我是标题!"
-                           name='3'>
-          <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；
-          </div>
-          <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
-        </sim-collapse-item>
-      </sim-collapse>
+      <sim-tree :data="data"
+                :defaultProps='defaultProps'></sim-tree>
     </div>
   </div>
 </template>
@@ -31,7 +12,67 @@ export default {
   name: "App",
   data() {
     return {
-      value: []
+      data: [
+        {
+          label: "一级 1",
+          children: [
+            {
+              label: "二级 1-1",
+              children: [
+                {
+                  label: "三级 1-1-1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          label: "一级 2",
+          children: [
+            {
+              label: "二级 2-1",
+              children: [
+                {
+                  label: "三级 2-1-1"
+                }
+              ]
+            },
+            {
+              label: "二级 2-2",
+              children: [
+                {
+                  label: "三级 2-2-1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          label: "一级 3",
+          children: [
+            {
+              label: "二级 3-1",
+              children: [
+                {
+                  label: "三级 3-1-1"
+                }
+              ]
+            },
+            {
+              label: "二级 3-2",
+              children: [
+                {
+                  label: "三级 3-2-1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      defaultProps: {
+        children: "children",
+        label: "label"
+      }
     };
   },
   watch: {
