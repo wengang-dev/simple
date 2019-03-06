@@ -6,7 +6,7 @@
             :class="computedShowState?'sim-collapse-title-arrow-rotate':''"></span>
     </div>
     <div class="sim-collapse-item-container"
-         :style="{height:showState?itemHeight+'px':'0px'}">
+         :style="{height:computedShowState?itemHeight+'px':'0px'}">
       <div class="sim-collapse-hidden-content"
            ref="hiddenContent">
         <slot></slot>
@@ -46,18 +46,17 @@ export default {
       return typeof this.$parent.accordion;
     },
     computedShowState() {
-      if (this.getActiveName !== null) {
+      if (this.getAccordionType !== "undefined") {
+        // 手风琴模式
         if (this.getParentValue === this.name) {
-          this.showState = true;
+          return this.showState;
         } else {
           this.showState = false;
-        }
-      } else {
-        if (this.showState) {
-          return true;
-        } else {
           return false;
         }
+      } else {
+        // 普通模式
+        return this.showState;
       }
     }
   },
