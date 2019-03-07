@@ -1,6 +1,6 @@
 <template>
-  <div class=' '>
-
+  <div class='sim-tab-bar'>
+    <slot></slot>
   </div>
 </template>
 
@@ -10,7 +10,12 @@ export default {
   data() {
     return {};
   },
-  components: {}
+  components: {},
+  mounted() {
+    this.$on("handclick", () => {
+      console.log("listen handclick");
+    });
+  }
 };
 </script>
 

@@ -26,7 +26,7 @@ import simDropdownItem from './dropDown/simDropdownItem'
 import simPopover from './popover'
 import simCollapse from './collapse'
 import simCollapseItem from './collapseItem'
-import simTabs from './tabs'
+import simTab from './tab'
 import simTabItem from './tabItem'
 import simTabBar from './tabBar'
 const components = {
@@ -55,7 +55,7 @@ const components = {
   simPopover,
   simCollapse,
   simCollapseItem,
-  simTabs,
+  simTab,
   simTabItem,
   simTabBar
 }

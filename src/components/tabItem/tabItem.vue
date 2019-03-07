@@ -1,16 +1,33 @@
 <template>
-  <div class=' '>
-
+  <div class='sim-tab-item'>
+    <slot v-bind:user="user">
+      {{ user.lastName }}
+    </slot>
   </div>
 </template>
 
 <script>
 export default {
   name: "sim-tab-item",
-  data() {
-    return {};
+  props: {
+    title: {
+      type: String
+    }
   },
-  components: {}
+  data() {
+    return {
+      user: {
+        firstName: "文",
+        lastName: "刚"
+      }
+    };
+  },
+  components: {},
+  methods: {
+    click() {
+      this.$parent.$emit("handclick");
+    }
+  }
 };
 </script>
 
