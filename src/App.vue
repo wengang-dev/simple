@@ -1,7 +1,22 @@
 <template>
   <div id="app">
-    <sim-tab>
-      <sim-tab-item title="title">
+    <sim-tab type='card'
+             v-model="value">
+      <sim-tab-item label="用户管理"
+                    name="first">
+        用户管理
+      </sim-tab-item>
+      <sim-tab-item label="配置管理"
+                    name="second">
+        配置管理
+      </sim-tab-item>
+      <sim-tab-item label="角色管理"
+                    name="third">
+        角色管理
+      </sim-tab-item>
+      <sim-tab-item label="定时任务补偿"
+                    name="four">
+        定时任务补偿
       </sim-tab-item>
     </sim-tab>
   </div>
@@ -11,7 +26,9 @@
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      value: "角色管理"
+    };
   },
   watch: {
     value(val) {

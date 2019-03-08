@@ -1,8 +1,9 @@
 <template>
-  <div class='sim-tab-item'>
-    <slot v-bind:user="user">
-      {{ user.lastName }}
-    </slot>
+  <div class='sim-tab-item'
+       v-show="getActiveLabel===label">
+
+    <slot></slot>
+
   </div>
 </template>
 
@@ -10,23 +11,24 @@
 export default {
   name: "sim-tab-item",
   props: {
-    title: {
+    label: {
+      type: String
+    },
+    name: {
       type: String
     }
   },
   data() {
-    return {
-      user: {
-        firstName: "文",
-        lastName: "刚"
-      }
-    };
+    return {};
   },
-  components: {},
-  methods: {
-    click() {
-      this.$parent.$emit("handclick");
+  computed: {
+    getActiveLabel() {
+      return this.$parent.activeLabel;
     }
+  },
+  methods: {},
+  created() {
+    this.$parent.initItemLabel(this.label);
   }
 };
 </script>

@@ -1,14 +1,15 @@
 <template>
-  <div class="sim-tab">
-    <sim-tab-item v-for="index in 5"
-                  :key="index">
-      <template v-slot:default="slotProps">
-        <div>
-          {{ slotProps.user.firstName }} gang
-        </div>
+  <div class="sim-tab"
+       :class="type==='border-card'?'sim-tabs-border-card':''">
+    <sim-tab-bar :itemLabels='itemLabels'
+                 :itemLabelsLength='itemLabelsLength'
+                 :type='type'></sim-tab-bar>
+    <div class="sim-tab-content"
+         :class="type==='border-card'?'sim-tab-content-card':''">
+      <slot>
+      </slot>
+    </div>
 
-      </template>
-    </sim-tab-item>
   </div>
 </template>
 
@@ -17,14 +18,57 @@ import simTabBar from "../tabBar/tabBar";
 import simTabItem from "../tabItem/tabItem";
 export default {
   name: "sim-tab",
+  model: {
+    prop: "value",
+    event: "change"
+  },
+  props: {
+    value: {
+      type: String | Number
+    },
+    type: {
+      type: String,
+      default: "normal"
+    }
+  },
   data() {
-    return {};
+    return {
+      activeLabel: "",
+      itemLabels: [],
+      itemLabelsLength: null
+    };
   },
   components: {
     simTabBar,
     simTabItem
   },
-  mounted() {}
+  watch: {
+    activeLabel(val) {
+      this.$emit("change", val);
+    }
+  },
+  methods: {
+    click(label) {
+      console.log("change activelabel");
+      this.activeLabel = label;
+    },
+    initItemLabel(label) {
+      if (this.itemLabels.indexOf(label) === -1) {
+        this.itemLabels.push(label);
+      }
+    },
+    checkValue() {
+      if (typeof this.value !== "undefined") {
+        this.activeLabel = this.value;
+      } else {
+        this.activeLabel = this.itemLabels[0];
+      }
+    }
+  },
+
+  mounted() {
+    this.checkValue();
+  }
 };
 </script>
 
@@ -32,7 +76,6 @@ export default {
 .sim-tabs {
   width: 100px;
   height: 100px;
-  background: green;
 }
 </style>
 
