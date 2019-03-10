@@ -1,24 +1,22 @@
 <template>
   <div id="app">
-    <sim-tab type='card'
-             v-model="value">
-      <sim-tab-item label="用户管理"
-                    name="first">
-        用户管理
-      </sim-tab-item>
-      <sim-tab-item label="配置管理"
-                    name="second">
-        配置管理
-      </sim-tab-item>
-      <sim-tab-item label="角色管理"
-                    name="third">
-        角色管理
-      </sim-tab-item>
-      <sim-tab-item label="定时任务补偿"
-                    name="four">
-        定时任务补偿
-      </sim-tab-item>
-    </sim-tab>
+    <sim-carousel>
+      <sim-carousel-item>
+        <div class="one"></div>
+      </sim-carousel-item>
+      <sim-carousel-item>
+        <div class="two"></div>
+      </sim-carousel-item>
+      <sim-carousel-item>
+        <div class="three"></div>
+      </sim-carousel-item>
+      <sim-carousel-item>
+        <div class="four"></div>
+      </sim-carousel-item>
+      <sim-carousel-item>
+        <div class="five"></div>
+      </sim-carousel-item>
+    </sim-carousel>
   </div>
 </template>
 
@@ -52,5 +50,25 @@ export default {
 }
 .container {
   width: 300px;
+}
+.one {
+  background: red;
+  height: 100%;
+}
+.two {
+  background: green;
+  height: 100%;
+}
+.three {
+  background: yellow;
+  height: 100%;
+}
+.four {
+  background: blue;
+  height: 100%;
+}
+.five {
+  background: purple;
+  height: 100%;
 }
 </style>

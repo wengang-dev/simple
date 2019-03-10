@@ -1,7 +1,7 @@
 <template>
   <div class='sim-carousel-item'
        :style="{transform:`translateX(${translate}px)`}"
-       :class="[itemIndex==getActiveIndex?'sim-carousel-item-active':'']">
+       :class="[itemIndex==getActiveIndex?'sim-carousel-item-active':'sim-carousel-item-neighbor',Math.abs(itemIndex-getActiveIndex)==1?'':'']">
     <slot></slot>
   </div>
 </template>
