@@ -29,6 +29,8 @@ import simCollapseItem from './collapseItem'
 import simTab from './tab'
 import simTabItem from './tabItem'
 import simTabBar from './tabBar'
+import simTabel from './tabel'
+import simTabelColumn from './tabelColumn'
 const components = {
   button,
   input,
@@ -57,7 +59,9 @@ const components = {
   simCollapseItem,
   simTab,
   simTabItem,
-  simTabBar
+  simTabBar,
+  simTabel,
+  simTabelColumn
 }
 
 const install = function(Vue) {

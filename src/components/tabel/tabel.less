@@ -1,0 +1,68 @@
+.sim-table {
+  width: 100%;
+}
+.sim-table-box {
+  overflow: auto;
+  box-sizing: border-box;
+  padding-bottom: 5px;
+}
+.sim-table-box-border {
+  border-bottom: 1px solid @normalColor;
+}
+.sim-table-box-position {
+  position: relative;
+}
+.sim-table-head-fixed {
+  position: absolute;
+  top: 0px;
+  z-index: 2;
+  background-color: #ffffff;
+  border-bottom: 1px solid @normalColor;
+}
+
+.sim-table-td-border {
+  border: 1px solid @normalColor;
+}
+.sim-table-head-td-border {
+  border: 1px solid @normalColor;
+  border-bottom: 0px;
+}
+.sim-table-head {
+  width: 100%;
+}
+.sim-table-head-tr {
+  border-bottom: 1px solid @normalColor;
+}
+.sim-table-head-td {
+  white-space: normal;
+  word-break: break-all;
+  line-height: 23px;
+  font-size: 14px;
+  color: rgb(96, 98, 102);
+  padding: 10px 0px;
+  cursor: default;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.sim-table-content {
+  width: 100%;
+  .sim-table-content-tr {
+    border-bottom: 1px solid @normalColor;
+    &:hover {
+      background-color: #f4f7fa;
+    }
+    .sim-table-content-td {
+      padding: 10px 0px;
+      white-space: normal;
+      word-break: break-all;
+      line-height: 23px;
+      font-size: 14px;
+      color: rgb(96, 98, 102);
+      padding-left: 10px;
+      box-sizing: border-box;
+    }
+  }
+  .sim-table-content-tr-stripe {
+    background-color: #fafafa;
+  }
+}

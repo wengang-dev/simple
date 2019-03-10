@@ -1,22 +1,21 @@
 <template>
   <div id="app">
-    <sim-carousel>
-      <sim-carousel-item>
-        <div class="one"></div>
-      </sim-carousel-item>
-      <sim-carousel-item>
-        <div class="two"></div>
-      </sim-carousel-item>
-      <sim-carousel-item>
-        <div class="three"></div>
-      </sim-carousel-item>
-      <sim-carousel-item>
-        <div class="four"></div>
-      </sim-carousel-item>
-      <sim-carousel-item>
-        <div class="five"></div>
-      </sim-carousel-item>
-    </sim-carousel>
+    <sim-table :data="tableData"
+               border
+               height="400px"
+               stripe>
+      <sim-table-column prop="date"
+                        label="日期"
+                        width="180">
+      </sim-table-column>
+      <sim-table-column prop="name"
+                        label="姓名"
+                        width="180">
+      </sim-table-column>
+      <sim-table-column prop="address"
+                        label="地址">
+      </sim-table-column>
+    </sim-table>
   </div>
 </template>
 
@@ -25,7 +24,109 @@ export default {
   name: "App",
   data() {
     return {
-      value: "角色管理"
+      tableData: [
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          address:
+            "上海市普陀区金沙江路 1518 弄,上海市普陀区金沙江路 1518 弄,上海市普陀区金沙江路 1518 弄,上海市普陀区金沙江路 1518 弄"
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄"
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄"
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄"
+        },
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄"
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄"
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄"
+        },
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄"
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄"
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄"
+        },
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄"
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄"
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄"
+        },
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄"
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄"
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄"
+        }
+      ]
     };
   },
   watch: {
@@ -50,25 +151,5 @@ export default {
 }
 .container {
   width: 300px;
-}
-.one {
-  background: red;
-  height: 100%;
-}
-.two {
-  background: green;
-  height: 100%;
-}
-.three {
-  background: yellow;
-  height: 100%;
-}
-.four {
-  background: blue;
-  height: 100%;
-}
-.five {
-  background: purple;
-  height: 100%;
 }
 </style>
