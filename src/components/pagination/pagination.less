@@ -9,15 +9,48 @@
 .sim-pagination-small {
   font-size: 10px;
 }
+.sim-pagination-page-quantity {
+  float: left;
+  color: @normalFontColor;
+  font-size: 0.7em;
+  height: 100%;
+  line-height: inherit;
+}
+.sim-jump-to {
+  float: right;
+  color: @normalFontColor;
+  line-height: inherit;
+  font-size: 0.7em;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input {
+    margin: 0 5px;
+    width: 2em;
+    height: 1.5em;
+    vertical-align: middle;
+    color: @normalFontColor;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid @normalColor;
+    transition: all 0.3s;
+    &:focus {
+      border-color: @activeFontColor;
+      box-shadow: 0px 0px 0.5px 0.5px @activeFontColor;
+    }
+  }
+}
 .sim-pagination-prev,
 .sim-pagination-next {
   float: left;
-  width: 1.5em;
-  //   line-height: 1.5em;
-  height: 1.5em;
-  font-size: 1em;
+  // width: 1.5em;
+  // height: 1.5em;
+  // font-size: 1em;
   font-weight: bold;
+  margin: 0 0.3em;
   color: @normalFontColor;
+  transition: all ease-in-out 0.3s;
   cursor: pointer;
   &:hover {
     color: @activeFontColor;
@@ -30,27 +63,25 @@
   font-size: inherit;
   line-height: inherit;
   box-sizing: border-box;
-  vertical-align: middle;
 }
 .sim-page-active {
   color: @activeFontColor !important;
 }
 .sim-page-span {
   float: left;
-  width: 1.5em;
   height: 1.5em;
   text-align: center;
-  // color: @normalFontColor;
   margin: 0 3px;
   cursor: pointer;
 }
 .sim-page-span-text {
+  float: left;
   font-size: 0.7em;
   border-radius: 0.2em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
   color: rgb(96, 98, 102);
-  transition: color 0.1s;
+  transition: color 0.3s;
   &:hover {
     color: @activeFontColor;
   }
@@ -63,6 +94,7 @@
   }
 }
 .sim-page-span-background {
+  transition: all ease-in-out 0.3s;
   background: rgb(244, 244, 245);
 }
 .sim-page-active-background {

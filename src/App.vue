@@ -1,14 +1,10 @@
 <template>
   <div id="app">
-    <sim-steps space="200"
-               active='3'>
-      <sim-step-item title='步骤一'
-                     desc="这是一段很长很长很长的描述性文字"></sim-step-item>
-      <sim-step-item title='步骤二'
-                     desc="这是一段很长很长很长的描述性文字"></sim-step-item>
-      <sim-step-item title='步骤三'
-                     desc="这一段没那么长"></sim-step-item>
-    </sim-steps>
+    <sim-pagination total='20'
+                    background
+                    small>
+
+    </sim-pagination>
   </div>
 </template>
 

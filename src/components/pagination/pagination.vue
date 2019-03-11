@@ -1,6 +1,7 @@
 <template>
   <div class='sim-pagination'
        :class="typeof small ==='undefined'?'':'sim-pagination-small'">
+    <span class="sim-pagination-page-quantity">总共{{total}}页</span>
     <span class="sim-pagination-prev"
           :class="activePage==1?'sim-pagination-disabled':''"
           @click="pageDown"><span class="sim-pagination-arrow-text">&lt;</span> </span>
@@ -10,13 +11,20 @@
             :key="item"
             @click="jump(pageShowText(item,index),index)">
         <span class="sim-page-span-text"
-              :class="[pageShowText(item,index)===activePage?typeof background!=='undefined'?'sim-page-active-background':'sim-page-active':'',typeof background!=='undefined'?'sim-page-span-background':'']"
+              :class="[pageShowText(item,index)==activePage?typeof background!=='undefined'?'sim-page-active-background':'sim-page-active':'',typeof background!=='undefined'?'sim-page-span-background':'']"
               v-text="pageShowText(item,index)"></span>
       </span>
     </div>
     <span class="sim-pagination-next "
           :class="activePage==total?'sim-pagination-disabled':''"
           @click="pageUp"><span class="sim-pagination-arrow-text">&gt;</span> </span>
+    <div class="sim-jump-to">
+      <span>前往</span>
+      <input type="text"
+             v-model="targetPage"
+             @keyup.enter="jumpToTargetPage">
+      <span>页</span>
+    </div>
   </div>
 </template>
 
@@ -40,11 +48,21 @@ export default {
       showAccount: 0,
       baseAccount: 0,
       diff: 0,
-      oldActiveIndex: -1
+      oldActiveIndex: -1,
+      targetPage: null
     };
   },
-  computed: {},
   methods: {
+    jumpToTargetPage() {
+      if (parseInt(this.targetPage) > this.total) {
+        this.targetPage = this.total;
+      }
+      if (parseInt(this.targetPage) < 1) {
+        this.targetPage = 1;
+      }
+      this.jump(this.targetPage);
+      this.targetPage = null;
+    },
     pageShowText(page, index) {
       if (
         this.activePage >= this.diff &&
@@ -82,7 +100,7 @@ export default {
           if (index == this.showAccount - 1) {
             return this.total;
           }
-          return this.total + page - this.showAccount;
+          return parseInt(this.total) + parseInt(page) - this.showAccount;
         }
       }
     },
