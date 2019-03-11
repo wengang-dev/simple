@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <sim-pagination total='20'
-                    background
-                    small>
-
-    </sim-pagination>
+    <!-- <sim-cascader :options="options"></sim-cascader> -->
+    <sim-popover title='提示标题'
+                 placement='top'
+                 content="这是一段内容，这是一段内容">
+      <sim-btn slot="reference">悬浮按钮</sim-btn>
+    </sim-popover>
   </div>
 </template>
 
@@ -12,7 +13,9 @@
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      value: []
+    };
   },
   watch: {
     value(val) {
@@ -36,5 +39,11 @@ export default {
 }
 .container {
   width: 300px;
+}
+.span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
 }
 </style>

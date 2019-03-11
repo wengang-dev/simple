@@ -127,15 +127,18 @@ export default {
         }
         this.activePage++;
       }
+    },
+    computedDiff() {
+      if (this.pageCount % 2 == 0) {
+        this.diff = this.pageCount / 2;
+      } else {
+        this.diff = (this.pageCount + 1) / 2;
+      }
     }
   },
   mounted() {
     this.showAccount = this.pageCount;
-    if (this.pageCount % 2 == 0) {
-      this.diff = this.pageCount / 2;
-    } else {
-      this.diff = (this.pageCount + 1) / 2;
-    }
+    this.computedDiff();
   }
 };
 </script>

@@ -5,6 +5,7 @@
   transition: ease-in-out 0.1s;
   box-sizing: border-box;
   outline: none;
+  transition: all ease-in-out 0.2s;
   &:hover {
     opacity: 0.6;
   }
@@ -81,16 +82,21 @@
   }
 }
 
-// disabled
-.disabled {
+.disbaled-btn {
   opacity: 0.5;
   cursor: no-drop;
   user-select: none;
   transition: none;
+  color: rgb(96, 98, 102);
+  background: rgb(255, 255, 255);
+  border-color: rgb(220, 223, 230);
   &:hover {
     opacity: 0.5 !important;
+    color: rgb(96, 98, 102) !important;
+    background: rgb(255, 255, 255) !important;
+    border-color: rgb(220, 223, 230) !important;
   }
-  &:active {
+  &:focus {
     opacity: 0.5 !important;
   }
 }

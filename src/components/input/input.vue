@@ -1,9 +1,9 @@
 <template>
   <div class="inputContainer">
-    <slot name="before">test slotaaa</slot>
+    <slot name="before"></slot>
     <input class="sim-input "
            :class="[
-                    disabled=='undefined'?'':'sim-input-disbaled',
+                    typeof disabled==='undefined'?'':'sim-input-disbaled',
                     slotBefore?'sim-input-before':'',
                     slotAfter?'sim-input-after':''
                   ]"
@@ -31,16 +31,7 @@ export default {
       type: String,
       default: "text"
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    slotBefore: {
-      type: String
-    },
-    slotAfter: {
-      type: String
-    }
+    disabled: {}
   },
   data() {
     return {};

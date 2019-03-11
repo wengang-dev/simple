@@ -53,7 +53,7 @@ export default {
   watch: {
     selectState(val) {
       if (val) {
-        this.selectText = "√";
+        this.selectText = "✓";
       } else {
         this.selectText = "";
       }
@@ -101,11 +101,13 @@ export default {
     // console.log(this.selected == "");
     if (this.selected !== undefined) {
       this.selectState = true;
-      let newValue = this.parentVlaue;
-      let index = newValue.indexOf(this.label);
-      if (index === -1) {
-        newValue.push(this.label);
-        this.$parent.$emit("change", newValue);
+      if (this.parentVlaue) {
+        let newValue = this.parentVlaue;
+        let index = newValue.indexOf(this.label);
+        if (index === -1) {
+          newValue.push(this.label);
+          this.$parent.$emit("change", newValue);
+        }
       }
     }
   }

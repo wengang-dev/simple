@@ -1,7 +1,6 @@
 <template>
   <div class=' sim-badge'
        @click="click">
-    <!-- <slot></slot> -->
     <span>消息</span>
     <span class="sim-badge-message-account"
           :class="type==='primary'?'sim-badge-message-primary':type==='warning'?'sim-badge-message-warning':'sim-badge-message-normal'"
@@ -18,7 +17,8 @@ export default {
       default: 99
     },
     value: {
-      type: String | Number
+      type: String | Number,
+      default: 0
     },
     type: {
       type: String,

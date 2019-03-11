@@ -13,13 +13,14 @@ export default {
   },
   props: {
     selectList: {
-      type: Array
+      type: Array,
+      default() {
+        return [];
+      }
     }
   },
   data() {
-    return {
-      list: null
-    };
+    return {};
   }
 };
 </script>

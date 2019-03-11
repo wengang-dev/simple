@@ -7,7 +7,7 @@
        :class="popoverState?'sim-popover-overflow-show':''">
     <slot name="reference"></slot>
     <div ref="simContent"
-         class="sim-popover-content sim-popover-content-top "
+         class="sim-popover-content "
          :class="popoverState?'sim-popover-show':''"
          :style="getTransform">
       <div class="sim-popover-container ">
@@ -41,7 +41,7 @@ export default {
     },
     width: {
       type: String | Number,
-      default: "200px"
+      default: "200"
     },
     type: {
       type: String,
@@ -52,7 +52,7 @@ export default {
     getTransform() {
       return {
         transform: "translate(" + this.translateX + "," + this.translateY + ")",
-        width: this.width
+        width: this.width + "px"
       };
     }
   },
@@ -104,48 +104,58 @@ export default {
   methods: {
     getTranslate() {
       if (this.placement === "top") {
-        this.translateX = -(this.width - this.popoverWidth) / 2 + "px";
-        this.translateY = this.contentHeight + 10 + "px";
+        this.translateX =
+          -(parseInt(this.width) - parseInt(this.popoverWidth)) / 2 + "px";
+        this.translateY = 20 + "px";
       } else if (this.placement === "top-start") {
         this.translateX = 0 + "px";
-        this.translateY = "120%";
+        this.translateY = "10px";
       } else if (this.placement === "top-end") {
         this.translateX = -(this.width - this.popoverWidth) + "px";
-        this.translateY = "120%";
+        this.translateY = "10px";
       } else if (this.placement === "bottom") {
-        this.translateX = -(this.width - this.popoverWidth) / 2 + "px";
-        this.translateY = -(this.popoverHeight + 20) + "px";
+        this.translateX =
+          -(parseInt(this.width) - parseInt(this.popoverWidth)) / 2 + "px";
+        this.translateY =
+          -parseInt(this.popoverHeight) - this.contentHeight - 20 + "px";
       } else if (this.placement === "bottom-start") {
         this.translateX = 0 + "px";
-        this.translateY = -(this.popoverHeight + 20) + "px";
+        this.translateY =
+          -parseInt(this.popoverHeight) - this.contentHeight - 20 + "px";
       } else if (this.placement === "bottom-end") {
         this.translateX = -(this.width - this.popoverWidth) + "px";
-        this.translateY = -(this.popoverHeight + 20) + "px";
+        this.translateY =
+          -parseInt(this.popoverHeight) - this.contentHeight - 20 + "px";
       } else if (this.placement === "left") {
-        this.translateX = this.popoverWidth + 20 + "px";
-        this.translateY = (this.contentHeight - this.popoverHeight) / 2 + "px";
+        this.translateX = parseInt(this.popoverWidth) + 20 + "px";
+        this.translateY =
+          -this.popoverHeight -
+          (this.contentHeight - this.popoverHeight) / 2 +
+          "px";
       } else if (this.placement === "left-start") {
-        this.translateX = this.popoverWidth + 20 + "px";
-        this.translateY = this.contentHeight - this.popoverHeight + "px";
+        this.translateX = parseInt(this.popoverWidth) + 20 + "px";
+        this.translateY = -this.popoverHeight + "px";
       } else if (this.placement === "left-end") {
-        this.translateX = this.popoverWidth + 20 + "px";
-        this.translateY = "0px";
+        this.translateX = parseInt(this.popoverWidth) + 20 + "px";
+        this.translateY = -this.contentHeight + "px";
       } else if (this.placement === "right") {
         this.translateX = -this.width - 20 + "px";
-        this.translateY = (this.contentHeight - this.popoverHeight) / 2 + "px";
+        this.translateY =
+          -this.popoverHeight -
+          (this.contentHeight - this.popoverHeight) / 2 +
+          "px";
       } else if (this.placement === "right-start") {
         this.translateX = -this.width - 20 + "px";
-        this.translateY = this.contentHeight - this.popoverHeight + "px";
+        this.translateY = -this.popoverHeight + "px";
       } else if (this.placement === "right-end") {
         this.translateX = -this.width - 20 + "px";
-        this.translateY = "0px";
+        this.translateY = -this.contentHeight + "px";
       }
     },
     getWidthAndHeight() {
       this.popoverWidth = this.$refs.simPopover.offsetWidth;
       this.popoverHeight = this.$refs.simPopover.offsetHeight;
       this.contentHeight = this.$refs.simContent.offsetHeight;
-      console.log(this.contentHeight);
     },
     mouseenter(event) {
       event.stopPropagation();
@@ -169,6 +179,7 @@ export default {
       }
     }
   },
+  beforeMount() {},
   mounted() {
     this.getWidthAndHeight();
     this.getTranslate();

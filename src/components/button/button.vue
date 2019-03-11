@@ -2,8 +2,8 @@
   <button class="btn"
           :class="[
                     size==='middle'?'middle-btn':size==='small'?'small-btn':'mini-btn',
-                    type==='default'?'default-btn':type==='success'?'success-btn':type==='info'?'info-btn':type==='warn'? 'warn-btn':type==='danger'?'danger-btn':'',
-                    disabled?'disabled':'']"
+                   !disabled?type==='default'?'default-btn':type==='success'?'success-btn':type==='info'?'info-btn':type==='warn'? 'warn-btn':type==='danger'?'danger-btn':'':'disbaled-btn',
+                    ]"
           @click="click">
     <slot></slot>
   </button>

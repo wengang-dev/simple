@@ -38,14 +38,16 @@ export default {
       default: "normal"
     },
     step: {
-      type: Number,
+      type: Number | String,
       default: 1
     },
     max: {
-      type: Number
+      type: Number,
+      default: 100
     },
     min: {
-      type: Number
+      type: Number,
+      default: 1
     }
   },
   data() {
@@ -100,21 +102,29 @@ export default {
     sub() {
       if (
         typeof this.disabled === "undefined" &&
-        (typeof this.min === "undefined" || this.number >= this.min + this.step)
+        (typeof this.min === "undefined" ||
+          this.number >= this.min + parseInt(this.step))
       ) {
-        let value = this.number - this.step;
+        let value = this.number - parseInt(this.step);
         this.$emit("input", value);
         this.$emit("change", value);
+      } else if (this.number < this.min + parseInt(this.step)) {
+        this.$emit("input", this.min);
+        this.$emit("change", this.min);
       }
     },
     add() {
       if (
         typeof this.disabled === "undefined" &&
-        (typeof this.max === "undefined" || this.number <= this.max - this.step)
+        (typeof this.max === "undefined" ||
+          this.number <= this.max - parseInt(this.step))
       ) {
-        let value = this.number + this.step;
+        let value = this.number + parseInt(this.step);
         this.$emit("input", value);
         this.$emit("change", value);
+      } else if (this.number < this.max - parseInt(this.step)) {
+        this.$emit("input", this.max);
+        this.$emit("change", this.max);
       }
     }
   },
