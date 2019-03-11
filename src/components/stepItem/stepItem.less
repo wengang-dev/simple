@@ -1,0 +1,76 @@
+.sim-step-item {
+  float: left;
+  line-height: 30px;
+  transition: all 0.2s;
+}
+.sim-step-item-identification {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.sim-step-item-dot {
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  text-align: center;
+  display: block;
+  font-weight: 500;
+  border-radius: 50%;
+  background: #ffffff;
+  float: left;
+}
+.sim-step-item-line-finish {
+  background: @activeColor !important;
+}
+.sim-step-item-finish {
+  .sim-step-item-dot {
+    border: 2px solid @activeColor;
+    color: @activeColor;
+  }
+  .sim-step-item-title {
+    color: @activeFontColor;
+  }
+  .sim-step-item-text {
+    color: @activeFontColor;
+  }
+}
+.sim-step-item-dot-current {
+  .sim-step-item-dot {
+    border: 2px solid #050505;
+    color: #303133;
+  }
+  .sim-step-item-title {
+    font-weight: 700;
+    color: #303133;
+  }
+}
+.sim-step-item-dot-todo {
+  .sim-step-item-dot {
+    border: 2px solid #c0c4cc;
+    color: #c0c4cc;
+  }
+  .sim-step-item-title {
+    color: #c0c4cc;
+    font-weight: 200;
+  }
+  .sim-step-item-text {
+    color: #c0c4cc;
+  }
+}
+.sim-step-item-line {
+  width: 100%;
+  height: 2px;
+  background: #c0c4cc;
+  margin-top: 10px;
+}
+.sim-step-item-text {
+  font-size: 14px;
+  box-sizing: border-box;
+  padding-right: 20px;
+  color: @normalFontColor;
+  line-height: 20px;
+}
+.sim-step-item-title {
+  font-size: 16px;
+  line-height: 38px;
+}
