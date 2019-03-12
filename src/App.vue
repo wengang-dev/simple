@@ -1,11 +1,7 @@
 <template>
   <div id="app">
-    <!-- <sim-cascader :options="options"></sim-cascader> -->
-    <sim-popover title='提示标题'
-                 placement='top'
-                 content="这是一段内容，这是一段内容">
-      <sim-btn slot="reference">悬浮按钮</sim-btn>
-    </sim-popover>
+
+    <sim-slider v-model="value"></sim-slider>
   </div>
 </template>
 
@@ -14,7 +10,8 @@ export default {
   name: "App",
   data() {
     return {
-      value: []
+      value: "",
+      sex: ""
     };
   },
   watch: {

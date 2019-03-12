@@ -49,7 +49,6 @@ export default {
   },
   methods: {
     click(label) {
-      console.log("change activelabel");
       this.activeLabel = label;
     },
     initItemLabel(label) {

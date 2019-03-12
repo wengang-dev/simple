@@ -4,7 +4,7 @@
         @mouseleave="mouseleave($event)">
     <span v-for="(item,index) of levelTexts"
           :style="{color:index>activeAccount?'#333333':activeColor}"
-          class="iconfont sim-rate-item"
+          class="iconfont sim-rate-item "
           :class="[typeof iconClasses!=='undefined'?'icon-face-init':'icon-star']"
           ref="rate-level"
           @mouseover="mouseover(index,$event)"
@@ -43,7 +43,7 @@ export default {
       text: "",
       activeAccount: -1,
       oldAccount: 0,
-      activeColor: "#333333",
+      activeColor: "orange",
       activeIcon: "icon-active-star",
       baseIcon: "icon-star",
       oldActiveIcon: "",
@@ -53,16 +53,9 @@ export default {
   },
   watch: {
     activeAccount(val) {
-      if (typeof this.iconClasses !== "undefined") {
-        this.replaceIcon(val);
-        this.baseIcon = "icon-face-init";
-      }
-      if (typeof this.colors !== "undefined") {
-        this.replaceColor(val);
-      }
+      this.initIconAndColors(val);
       if (val === -1) {
         this.text = "";
-        this.activeColor = "";
       } else {
         this.text = this.levelTexts[val];
       }
@@ -70,6 +63,15 @@ export default {
     }
   },
   methods: {
+    initIconAndColors(val) {
+      if (typeof this.iconClasses !== "undefined") {
+        this.replaceIcon(val);
+        this.baseIcon = "icon-face-init";
+      }
+      if (typeof this.colors !== "undefined") {
+        this.replaceColor(val);
+      }
+    },
     mouseover(index, event) {
       event.stopPropagation();
       event.cancelBubble = true;
@@ -92,29 +94,109 @@ export default {
         for (let i = 0; i <= val; i++) {
           this.$refs["rate-level"][i].style.color = this.activeColor;
           this.$refs["rate-level"][i].classList.add(this.activeIcon);
-          this.$refs["rate-level"][i].classList.remove(this.baseIcon);
+          // console.log(this.baseIcon);
+          if (this.$refs["rate-level"][i].classList.contains(this.baseIcon)) {
+            this.$refs["rate-level"][i].classList.remove(this.baseIcon);
+          }
         }
         this.oldAccount = this.activeAccount;
       } else if (val <= this.activeAccount) {
         if (val !== -1) {
-          for (let i = 0; i <= this.oldAccount; i++) {
-            this.$refs["rate-level"][i].classList.remove(this.oldActiveIcon);
-            this.$refs["rate-level"][i].classList.add(this.baseIcon);
-            if (i <= val) {
-              this.$refs["rate-level"][i].style.color = this.activeColor;
-              this.$refs["rate-level"][i].classList.add(this.activeIcon);
+          if (typeof this.iconClasses !== "undefined") {
+            for (let i = 0; i <= this.oldAccount; i++) {
+              if (i > this.activeAccount) {
+                this.$refs["rate-level"][i].classList.add(this.baseIcon);
+              }
+              if (
+                this.$refs["rate-level"][i].classList.contains(
+                  this.iconClasses[0]
+                )
+              ) {
+                this.$refs["rate-level"][i].classList.remove(
+                  this.iconClasses[0]
+                );
+              }
+              if (
+                this.$refs["rate-level"][i].classList.contains(
+                  this.iconClasses[1]
+                )
+              ) {
+                this.$refs["rate-level"][i].classList.remove(
+                  this.iconClasses[1]
+                );
+              }
+              if (
+                this.$refs["rate-level"][i].classList.contains(
+                  this.iconClasses[2]
+                )
+              ) {
+                this.$refs["rate-level"][i].classList.remove(
+                  this.iconClasses[2]
+                );
+              }
             }
-            if (i > val) {
-              this.$refs["rate-level"][i].style.color = "";
+            for (let i = 0; i <= this.activeAccount; i++) {
+              this.$refs["rate-level"][i].classList.add(this.activeIcon);
+              this.$refs["rate-level"][i].style.color = this.activeColor;
+            }
+          } else {
+            for (let i = 0; i <= this.oldAccount; i++) {
+              if (
+                this.$refs["rate-level"][i].classList.contains(this.activeIcon)
+              ) {
+                this.$refs["rate-level"][i].classList.remove(this.activeIcon);
+              }
+              this.$refs["rate-level"][i].classList.add(this.baseIcon);
+              if (i <= val) {
+                this.$refs["rate-level"][i].style.color = this.activeColor;
+                this.$refs["rate-level"][i].classList.add(this.activeIcon);
+              }
+
+              if (i > val) {
+                this.$refs["rate-level"][i].style.color = "";
+              }
             }
           }
+
           this.oldAccount = this.activeAccount;
         } else {
           for (let i = 0; i <= this.oldAccount; i++) {
             this.$refs["rate-level"][i].style.color = "";
-            this.$refs["rate-level"][i].classList.remove(this.iconClasses[0]);
-            this.$refs["rate-level"][i].classList.remove(this.iconClasses[1]);
-            this.$refs["rate-level"][i].classList.remove(this.iconClasses[2]);
+            if (
+              this.$refs["rate-level"][i].classList.contains(this.activeIcon)
+            ) {
+              this.$refs["rate-level"][i].classList.remove(this.activeIcon);
+            }
+            if (typeof this.iconClasses !== "undefined") {
+              if (
+                this.$refs["rate-level"][i].classList.contains(
+                  this.iconClasses[0]
+                )
+              ) {
+                this.$refs["rate-level"][i].classList.remove(
+                  this.iconClasses[0]
+                );
+              }
+              if (
+                this.$refs["rate-level"][i].classList.contains(
+                  this.iconClasses[1]
+                )
+              ) {
+                this.$refs["rate-level"][i].classList.remove(
+                  this.iconClasses[1]
+                );
+              }
+              if (
+                this.$refs["rate-level"][i].classList.contains(
+                  this.iconClasses[2]
+                )
+              ) {
+                this.$refs["rate-level"][i].classList.remove(
+                  this.iconClasses[2]
+                );
+              }
+            }
+
             this.$refs["rate-level"][i].classList.add(this.baseIcon);
           }
           this.oldAccount = 0;
@@ -122,12 +204,14 @@ export default {
       }
     },
     chooseLevel(index) {
+      // 点击选择
       this.saveStatus = true;
       this.activeAccount = index;
       this.saveTemIndex = index;
       this.$emit("select", this.levelTexts[index]);
     },
     replaceColor(val) {
+      // 替换选中时的颜色
       if (val <= 1) {
         this.activeColor = this.colors[0];
       } else if (val >= 3) {
@@ -137,6 +221,7 @@ export default {
       }
     },
     replaceIcon(val) {
+      // 替换图标
       this.oldActiveIcon = this.activeIcon;
       if (val <= 1) {
         this.activeIcon = this.iconClasses[0];

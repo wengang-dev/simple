@@ -42,9 +42,6 @@ export default {
         this.$emit("change", this.label);
       }
     }
-  },
-  mounted() {
-    console.log("disabled: ", this.disabled);
   }
 };
 </script>
