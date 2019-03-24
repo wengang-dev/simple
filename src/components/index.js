@@ -33,6 +33,7 @@ import simTabel from './tabel'
 import simTabelColumn from './tabelColumn'
 import simSteps from './steps'
 import simStepItem from './stepItem'
+import simDialog from './dialog'
 const components = {
   button,
   input,
@@ -65,7 +66,8 @@ const components = {
   simTabel,
   simTabelColumn,
   simSteps,
-  simStepItem
+  simStepItem,
+  simDialog
 }
 
 const install = function(Vue) {

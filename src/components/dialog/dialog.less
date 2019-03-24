@@ -1,0 +1,38 @@
+.sim-dialog-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background-color: black;
+  opacity: 0.3;
+}
+.sim-dialog {
+  overflow: hidden;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  background: white;
+  transform: translate(-50%, -50%);
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 10px 5px 10px 5px;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, SimSun, sans-serif;
+  font-weight: 400;
+}
+.sim-dialog-head {
+  strong {
+    float: left;
+    line-height: 24px;
+    font-size: 18px;
+    color: #303133;
+  }
+  span {
+    float: right;
+    color: @normalFontColor;
+    cursor: pointer;
+    color: #303133;
+  }
+}

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-
-    <sim-slider v-model="value"></sim-slider>
+    <sim-dialog :visible='state'></sim-dialog>
   </div>
 </template>
 
@@ -10,8 +9,7 @@ export default {
   name: "App",
   data() {
     return {
-      value: "",
-      sex: ""
+      state: true
     };
   },
   watch: {
@@ -33,6 +31,7 @@ export default {
   height: 200px;
   margin: 0 auto;
   padding-top: 100px;
+  background: white;
 }
 .container {
   width: 300px;
