@@ -5,8 +5,7 @@
   left: 0;
   top: 0;
   z-index: 999;
-  background-color: black;
-  opacity: 0.3;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .sim-dialog {
   overflow: hidden;
@@ -18,21 +17,44 @@
   border-radius: 3px;
   box-sizing: border-box;
   padding: 10px 5px 10px 5px;
+  animation: sim-dialog-show-animation 0.3s forwards;
+}
+@keyframes sim-dialog-show-animation {
+  0% {
+    top: 20%;
+  }
+  100% {
+    top: 25%;
+  }
+}
+
+.sim-dialog-head {
+  overflow: hidden;
+  margin-bottom: 10px;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
     Microsoft YaHei, SimSun, sans-serif;
-  font-weight: 400;
-}
-.sim-dialog-head {
-  strong {
+  .sim-dialog-head-notice {
     float: left;
     line-height: 24px;
     font-size: 18px;
     color: #303133;
   }
-  span {
+  .sim-dialog-head-close {
     float: right;
     color: @normalFontColor;
     cursor: pointer;
     color: #303133;
   }
+}
+.sim-dialog-slot-text {
+  font-size: 14px;
+  color: #606266;
+  margin-bottom: 20px;
+}
+.dialog-enter-active,
+.dialog-leave-active {
+  transition: opacity 0.3s;
+}
+.dialog-enter, .dialog-leave-to /* .dialog-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }

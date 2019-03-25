@@ -1,16 +1,21 @@
 <template>
-  <div class="sim-dialog-container">
-    <div class='sim-dialog'
-         :style="{width:width}"
-         v-show="visible&&ownStatus">
-      <div class="sim-dialog-head">
-        <strong>提示</strong> <span @click="close">x</span> </div>
-      <slot>
-      </slot>
-      <slot name='footer'></slot>
+  <transition name="dialog">
+    <div class="sim-dialog-container"
+         v-show="visible">
+      <div class='sim-dialog'
+           :style="{width:width}">
+        <div class="sim-dialog-head">
+          <strong class="sim-dialog-head-notice">提示</strong>
+          <span @click="close"
+                class="sim-dialog-head-close">x</span> </div>
+        <div class="sim-dialog-slot-text">
+          <slot>
+          </slot>
+        </div>
+        <slot name='footer'></slot>
+      </div>
     </div>
-  </div>
-
+  </transition>
 </template>
 
 <script>
@@ -28,20 +33,14 @@ export default {
       default: "300px"
     }
   },
-  watch: {
-    visible(val) {
-      this.ownStatus = val;
-    }
-  },
+  watch: {},
   data() {
-    return {
-      ownStatus: true
-    };
+    return {};
   },
 
   methods: {
     close() {
-      this.close = !this.close;
+      this.$emit("close");
     }
   }
 };

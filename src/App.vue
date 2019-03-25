@@ -1,6 +1,18 @@
 <template>
   <div id="app">
-    <sim-dialog :visible='state'></sim-dialog>
+    <sim-dialog :visible='state'
+                @close='close'>
+      <span>我是一段提示文字！！</span>
+      <div slot='footer'
+           class="btn-container">
+        <sim-btn size='mini'
+                 @click="close">取消</sim-btn>
+        <sim-btn size='mini'
+                 @click="close"
+                 type='info'>确定</sim-btn>
+      </div>
+    </sim-dialog>
+    <button @click="click">click</button>
   </div>
 </template>
 
@@ -9,7 +21,7 @@ export default {
   name: "App",
   data() {
     return {
-      state: true
+      state: false
     };
   },
   watch: {
@@ -19,7 +31,10 @@ export default {
   },
   methods: {
     click() {
-      alert("click");
+      this.state = true;
+    },
+    close() {
+      this.state = false;
     }
   }
 };
@@ -36,10 +51,7 @@ export default {
 .container {
   width: 300px;
 }
-.span {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  font-size: 14px;
+.btn-container {
+  text-align: center;
 }
 </style>
