@@ -37,6 +37,7 @@ import simDialog from './dialog'
 import simCalendar from './calendar'
 import simBreadcrumb from './breadcrumb'
 import simBreadcrumbItem from './breadcrumbItem'
+import simCascaderItem from './cascaderItem'
 const components = {
   button,
   input,
@@ -47,6 +48,7 @@ const components = {
   select,
   options,
   cascader,
+  simCascaderItem,
   slider,
   simSwitch,
   simRate,

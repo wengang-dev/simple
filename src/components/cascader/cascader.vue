@@ -8,38 +8,10 @@
     <transition name="simcascaderList">
       <div class="sim-cascader-list"
            v-show="rotateShow">
-        <span class="sim-cascader-list-arrow">^</span>
+
         <div class="sim-cascader-show-list"
              @click='selectCascader($event)'>
-          <div class="sim-cascader-first">
-            <div class="sim-cascader-options "
-                 v-for="(item,index) of options"
-                 :key='index'
-                 :class="firstActive===item.firstName?'sim-cascader-options-active':''">
-              <span class="sim-cascader-options-label sim-cascader-options-first"
-                    :data-index="index">{{item.firstName}}</span>
-            </div>
-          </div>
-          <div class="sim-cascader-second"
-               v-if="cascaderSecond">
-            <div class="sim-cascader-options "
-                 v-for="(item,index) of cascaderSecond"
-                 :key="index"
-                 :class="secondActive===item.secondName?'sim-cascader-options-active':''">
-              <span class="sim-cascader-options-label sim-cascader-options-second"
-                    :data-index="index">{{item.secondName}}</span>
-            </div>
-          </div>
-          <div class="sim-cascader-third"
-               v-if="cascaderThird">
-            <div class="sim-cascader-options "
-                 v-for="(item,index) of cascaderThird"
-                 :key="index"
-                 :class="thirdActive===item.thirdName?'sim-cascader-options-active':''">
-              <span class="sim-cascader-options-label sim-cascader-options-third"
-                    :data-index='index'>{{item.thirdName}}</span>
-            </div>
-          </div>
+          <sim-cascader-item :options='options'></sim-cascader-item>
         </div>
       </div>
     </transition>
@@ -47,6 +19,7 @@
 </template>
 
 <script>
+import simCascaderItem from "../cascaderItem/cascaderItem";
 export default {
   name: "sim-cascader",
   model: {
@@ -74,6 +47,9 @@ export default {
       secondActive: false,
       thirdActive: false
     };
+  },
+  components: {
+    simCascaderItem
   },
   methods: {
     rotate() {
