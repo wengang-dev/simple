@@ -34,6 +34,9 @@ import simTabelColumn from './tabelColumn'
 import simSteps from './steps'
 import simStepItem from './stepItem'
 import simDialog from './dialog'
+import simCalendar from './calendar'
+import simBreadcrumb from './breadcrumb'
+import simBreadcrumbItem from './breadcrumbItem'
 const components = {
   button,
   input,
@@ -67,7 +70,10 @@ const components = {
   simTabelColumn,
   simSteps,
   simStepItem,
-  simDialog
+  simDialog,
+  simCalendar,
+  simBreadcrumb,
+  simBreadcrumbItem
 }
 
 const install = function(Vue) {

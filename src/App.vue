@@ -1,18 +1,11 @@
 <template>
   <div id="app">
-    <sim-dialog :visible='state'
-                @close='close'>
-      <span>我是一段提示文字！！</span>
-      <div slot='footer'
-           class="btn-container">
-        <sim-btn size='mini'
-                 @click="close">取消</sim-btn>
-        <sim-btn size='mini'
-                 @click="close"
-                 type='info'>确定</sim-btn>
-      </div>
-    </sim-dialog>
-    <button @click="click">click</button>
+    <sim-breadcrumb separator='/'>
+      <!-- separator-class='icon-carousel-next' -->
+      <sim-breadcrumb-item to='{path:/}'>首页</sim-breadcrumb-item>
+      <sim-breadcrumb-item>活动列表</sim-breadcrumb-item>
+      <sim-breadcrumb-item>活动详情</sim-breadcrumb-item>
+    </sim-breadcrumb>
   </div>
 </template>
 
