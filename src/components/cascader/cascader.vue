@@ -9,9 +9,9 @@
       <div class="sim-cascader-list"
            v-show="rotateShow">
 
-        <div class="sim-cascader-show-list"
-             @click='selectCascader($event)'>
-          <sim-cascader-item :options='options'></sim-cascader-item>
+        <div class="sim-cascader-show-list">
+          <sim-cascader-item :options='options'
+                             :cascader-index='cascaderIndex'></sim-cascader-item>
         </div>
       </div>
     </transition>
@@ -41,11 +41,7 @@ export default {
       selectValue: "",
       rotateShow: false,
       rotateHidden: false,
-      cascaderSecond: false,
-      cascaderThird: false,
-      firstActive: false,
-      secondActive: false,
-      thirdActive: false
+      cascaderIndex: 0
     };
   },
   components: {
@@ -60,34 +56,6 @@ export default {
         this.rotateHidden = true;
         this.rotateShow = false;
       }
-    },
-    selectCascader(event) {
-      let levels = event.target.classList[1];
-      if (levels === "sim-cascader-options-first") {
-        let firstIndex = event.target.dataset.index;
-        this.firstActive = event.target.innerText;
-        this.cascaderSecond = this.options[firstIndex].secondLevel;
-        this.cascaderThird = false;
-      } else if (levels === "sim-cascader-options-second") {
-        let secondIndex = event.target.dataset.index;
-        this.secondActive = event.target.innerText;
-        this.cascaderThird = this.cascaderSecond[secondIndex].thirdLevel;
-        if (!this.cascaderThird) {
-          this.$emit("select", {
-            firstActive: this.firstActive,
-            secondActive: this.secondActive
-          });
-          this.rotate();
-        }
-      } else if (levels === "sim-cascader-options-third") {
-        this.thirdActive = event.target.innerText;
-        this.$emit("select", {
-          firstActive: this.firstActive,
-          secondActive: this.secondActive,
-          thirdActive: this.thirdActive
-        });
-        this.rotate();
-      }
     }
   },
   mounted() {
@@ -96,16 +64,13 @@ export default {
       "click",
       e => {
         let event = e || window.event;
-
-        if (
-          event.target.classList[0] === "sim-cascader-markArrow" ||
-          event.target.classList[0] === "sim-cascader-show"
-        ) {
+        if (event.target.classList[0] === "sim-cascader-show") {
           this.rotate();
-        } else if (event.target.classList[0] === "sim-cascader-options-label") {
-        } else {
-          this.rotateHidden = true;
+        } else if (
+          event.target.classList[0] !== "sim-cascader-item-show-list-li"
+        ) {
           this.rotateShow = false;
+          this.rotateHidden = true;
         }
       },
       false
